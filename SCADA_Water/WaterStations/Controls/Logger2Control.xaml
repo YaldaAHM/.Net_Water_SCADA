@@ -1,0 +1,198 @@
+﻿<UserControl x:Class="ReporterWPF.WaterStations.Controls.Logger2Control"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:controls="clr-namespace:ReporterWPF.WaterStations.Controls"
+             xmlns:converter="clr-namespace:ReporterWPF.WaterStations.Converter"
+             mc:Ignorable="d" 
+         >
+    <UserControl.Resources>
+        <converter:FaultColorConverter x:Key="FaultColorConverter" />
+        <converter:FaultColorRFConverter x:Key="FaultColorRFConverter" />
+        <converter:VoltageConverter x:Key="VoltageConverter"/>
+        <converter:FaultTypePSConverter x:Key="FaultTypePsConverter"/>
+    </UserControl.Resources>
+    <Grid ToolTip="Central controller">
+        <Grid.Resources>
+
+
+            <converter:BatteryConverter x:Key="BatteryConverter"  />
+            <!--<wifiRange:CableConverter x:Key="CableConverter"  />-->
+
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <controls:PopupInfo x:Name="PopupInfo" ></controls:PopupInfo>
+        <!--MouseDown="PopupOpen_MouseDown"-->
+        <Image Grid.Column="0" Grid.Row="1" Grid.RowSpan="1" Grid.ColumnSpan="2"  Source="../../Image/WaterStation/Logger2.png" 
+                    >
+        </Image>
+
+        <!--<TextBox Grid.Column="1"  Text="{Binding Humidity10.SensorTypeProp}" ></TextBox>-->
+
+        <Grid Grid.Column="0" Grid.ColumnSpan="2" Row="0" >
+            <Grid.RowDefinitions>
+                <!--<RowDefinition Height="20*"/>-->
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="0*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="70*"/>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="60*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <controls:RatingRF Grid.Row="1" x:Name="RatingRF"   Grid.Column="4"  />
+            <TextBlock   VerticalAlignment="Bottom"  Text="RF" Grid.Row="0" Grid.Column="3" ></TextBlock>
+             <TextBlock Text="GSM" Grid.Row="0" Grid.Column="1"  VerticalAlignment="Bottom" ></TextBlock>
+
+            <Image x:Name="BatImage"  
+                Grid.Row="1" Grid.Column="6"  >
+                <Image.Source>
+                    <MultiBinding Converter="{StaticResource BatteryConverter}">
+
+                        <Binding Path="Voltage_Batt" />
+                        <Binding />
+                    </MultiBinding>
+                </Image.Source>
+            </Image>
+            <TextBlock Visibility="Hidden" Name="TBTypeRate"></TextBlock>
+            <TextBlock  VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="4"
+                       Text="{Binding Path=RF, Converter={StaticResource VoltageConverter}, ConverterParameter=RFRSS}"></TextBlock>
+           
+            <TextBlock Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="6" Text="{Binding Path=Voltage_Batt, Converter={StaticResource VoltageConverter}, ConverterParameter=RTUBatt}"></TextBlock>
+            <Canvas  Grid.Column="3" Name="RFFP" Visibility="{Binding ElementName=TBTypeRate, Path=Text,Converter={StaticResource FaultTypePsConverter},ConverterParameter=PSW}"
+                   Grid.Row="1" Grid.ColumnSpan="1"  >
+                <!-- Base color -->
+                <Ellipse Width="25" Height="25" >
+                    <Ellipse.Fill>
+                        <RadialGradientBrush GradientOrigin=".5,.8" RadiusX="0.6">
+                            <GradientStop Color="{Binding Path=RF, Converter={StaticResource FaultColorRFConverter}, ConverterParameter=RFFP}">
+
+                                <GradientStop.Offset>1</GradientStop.Offset>
+                            </GradientStop>
+
+                            <!--<GradientStop Color="{Binding FaultColor, Mode=TwoWay}" Offset="1" />-->
+
+                            <GradientStop Color="Beige" Offset="0" />
+                        </RadialGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <!-- Highligh color-->
+                <Ellipse Width="20" Height="18" Canvas.Top="1" Canvas.Left="3">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#ffffff" Offset="0" />
+                            <GradientStop Color="Transparent" Offset="1" />
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Canvas>
+            <Canvas  Grid.Column="1" Name="RTUFP" Visibility="{Binding ElementName=TBTypeRate, Path=Text,Converter={StaticResource FaultTypePsConverter},ConverterParameter=PSW}"
+                   Grid.Row="1" Grid.ColumnSpan="1"   >
+                <!-- Base color -->
+                <Ellipse Width="25" Height="25" >
+                    <Ellipse.Fill>
+                        <RadialGradientBrush GradientOrigin=".5,.8" RadiusX="0.6">
+                            <GradientStop Color="{Binding Path=RTU, Converter={StaticResource FaultColorConverter}, ConverterParameter=RTUFP}">
+
+                                <GradientStop.Offset>1</GradientStop.Offset>
+                            </GradientStop>
+
+                            <!--<GradientStop Color="{Binding FaultColor, Mode=TwoWay}" Offset="1" />-->
+
+                            <GradientStop Color="Beige" Offset="0" />
+                        </RadialGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <!-- Highligh color-->
+                <Ellipse Width="20" Height="18" Canvas.Top="1" Canvas.Left="3">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#ffffff" Offset="0" />
+                            <GradientStop Color="Transparent" Offset="1" />
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Canvas>
+
+
+          
+            <Canvas  Grid.Column="3" Name="RFSSW" Visibility="{Binding ElementName=TBTypeRate, Path=Text,Converter={StaticResource FaultTypePsConverter},ConverterParameter=SSW}"
+                   Grid.Row="1" Grid.ColumnSpan="1"   >
+                <!-- Base color -->
+                <Ellipse Width="25" Height="25" >
+                    <Ellipse.Fill>
+                        <RadialGradientBrush GradientOrigin=".5,.8" RadiusX="0.6">
+                            <GradientStop Color="{Binding Path=RF, Converter={StaticResource FaultColorRFConverter}, ConverterParameter=RFSSW}">
+
+                                <GradientStop.Offset>1</GradientStop.Offset>
+                            </GradientStop>
+
+                            <!--<GradientStop Color="{Binding FaultColor, Mode=TwoWay}" Offset="1" />-->
+
+                            <GradientStop Color="Beige" Offset="0" />
+                        </RadialGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Ellipse Width="20" Height="18" Canvas.Top="1" Canvas.Left="3">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#ffffff" Offset="0" />
+                            <GradientStop Color="Transparent" Offset="1" />
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Canvas>
+            <!--Visibility="{Binding ElementName=TBTypeRate, Path=Text,Converter={StaticResource FaultTypePsConverter}}"-->
+            <Canvas  Grid.Column="1" Name="LoggerSSW" Visibility="{Binding ElementName=TBTypeRate, Path=Text,Converter={StaticResource FaultTypePsConverter},ConverterParameter=SSW}"
+                   Grid.Row="1" Grid.ColumnSpan="1"  >
+                <!-- Base color -->
+                <Ellipse Width="25" Height="25" >
+                    <Ellipse.Fill>
+                        <RadialGradientBrush GradientOrigin=".5,.8" RadiusX="0.6">
+                            <GradientStop Color="{Binding Path=Logger, Converter={StaticResource FaultColorRFConverter}, ConverterParameter=LoggerSSW}">
+
+                                <GradientStop.Offset>1</GradientStop.Offset>
+                            </GradientStop>
+
+                          
+                            <GradientStop Color="Beige" Offset="0" />
+                        </RadialGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <!-- Highligh color-->
+                <Ellipse Width="20" Height="18" Canvas.Top="1" Canvas.Left="3">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#ffffff" Offset="0" />
+                            <GradientStop Color="Transparent" Offset="1" />
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Canvas>
+
+
+
+          
+        </Grid>
+
+
+    </Grid>
+</UserControl>

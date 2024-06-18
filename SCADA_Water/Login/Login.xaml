@@ -1,0 +1,352 @@
+﻿<Window x:Class="ReporterWPF.Login.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ReporterWPF.Login"
+        mc:Ignorable="d"
+       xmlns:loadin="clr-namespace:LoadingIndicators.WPF;assembly=LoadingIndicators.WPF"
+        Height="244.737" Width="610.902" FontFamily="Tahoma" WindowStyle="None"
+        WindowStartupLocation="CenterScreen" AllowsTransparency="True" Loaded="Window_Loaded"
+        FlowDirection="{DynamicResource FlowDirectionRL}"
+        xmlns:fieldresoures="clr-namespace:Reporter.Localization.Login;assembly=Reporter.Localization"
+        xmlns:management="clr-namespace:Reporter.Localization.Management;assembly=Reporter.Localization"
+                xmlns:main="clr-namespace:Reporter.Localization.Main0;assembly=Reporter.Localization"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <!--Icon="Icons/imen1.png"-->
+    <Window.Background>
+        <ImageBrush TileMode="Tile" RenderOptions.BitmapScalingMode="HighQuality" />
+        <!--ImageSource="Icons/Login6..jpg"-->
+    </Window.Background>
+    <Window.Resources>
+
+        <ResourceDictionary>
+            
+            
+            <DataTemplate x:Key="myTemplate" DataType="local:MyData">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Division: "/>
+                    <TextBlock Text="{Binding Path=Division}"/>
+                </StackPanel>
+            </DataTemplate>
+            <ControlTemplate x:Key="errorEmptyTemplate">
+                <StackPanel Margin="0,200,100,50">
+                    <TextBlock FlowDirection="{DynamicResource FlowDirectionLR}" Foreground="Red">*</TextBlock>
+                    <AdornedElementPlaceholder/>
+                </StackPanel>
+            </ControlTemplate>
+            <ControlTemplate x:Key="errorTemplate">
+                <StackPanel>
+                    <TextBlock Foreground="Red">Invalid Value!!!</TextBlock>
+                    <AdornedElementPlaceholder/>
+                </StackPanel>
+            </ControlTemplate>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/LoadingIndicators.WPF;component/Styles/LoadingWave.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/LoadingIndicators.WPF;component/Styles/LoadingThreeDots.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/LoadingIndicators.WPF;component/Styles/LoadingFlipPlane.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/LoadingIndicators.WPF;component/Styles/LoadingPulse.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/LoadingIndicators.WPF;component/Styles/LoadingDoubleBounce.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+
+
+    </Window.Resources>
+
+    <Border  BorderBrush="DarkGray" BorderThickness="1" CornerRadius="20" Width="510.902"
+                       >
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#99b6d8" Offset="0.0" />
+                <GradientStop Color="#99b6d8" Offset="0.20" />
+                <GradientStop Color="#D3D3D3" Offset="0.40" />
+                <GradientStop Color="#D3D3D3" Offset="0.60" />
+                <GradientStop Color="#99b6d8" Offset="0.80" />
+                <GradientStop Color="#99b6d8" Offset="1.0" />
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid x:Name="GridMain">
+            <Grid.Resources>
+
+                <ControlTemplate x:Key="validationErrorTemplate">
+                    <DockPanel>
+                        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                            <Grid Width="12" Height="12">
+                                <Ellipse Width="12" Height="12" 
+
+            Fill="Red" HorizontalAlignment="Center" 
+
+            VerticalAlignment="Center"
+
+                     
+
+                     ></Ellipse>
+                                <TextBlock Foreground="White" FontWeight="Heavy" 
+
+            FontSize="8" HorizontalAlignment="Center" 
+
+            VerticalAlignment="Center" TextAlignment="Center"
+
+                       ToolTip="{Binding ElementName=ErrorAdorner, 
+                       Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"
+
+                       >X</TextBlock>
+                            </Grid>
+                            <TextBlock Foreground="Red"  Margin="2,0,0,0" 
+
+                   Text="{Binding ElementName=ErrorAdorner, 
+                   Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"
+
+                   ></TextBlock>
+                        </StackPanel>
+                        <AdornedElementPlaceholder 
+
+        x:Name="ErrorAdorner" ></AdornedElementPlaceholder>
+                    </DockPanel>
+                </ControlTemplate>
+            </Grid.Resources>
+           
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Border  BorderBrush="DarkGray" BorderThickness="0" CornerRadius="20"
+                        VerticalAlignment="Top" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" >
+                <Border.Background>
+
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#99b6d8" Offset="0"/>
+                        <GradientStop Color="#99b6d8" Offset="1"/>
+                        <GradientStop Color="#c5e4ec" Offset="0"/>
+                        <GradientStop Color="#c5e4ec" Offset="0"/>
+                    </LinearGradientBrush>
+
+                </Border.Background>
+                <DockPanel >
+
+                    <Grid Height="30" FlowDirection="{DynamicResource FlowDirectionLR}" DockPanel.Dock="Top">
+                        <Image Source="../Image/Pic/Close-icon.png" HorizontalAlignment="Left" MouseDown="Image_MouseDown"></Image>
+                        <TextBlock Name="ScadaTextBlock" Text="{x:Static fieldresoures:FieldResource.SCADA}" HorizontalAlignment="Center" VerticalAlignment="Center"
+				Foreground="#FFF7F9F9"  FontSize="15" FontWeight="Bold" TextDecorations="{x:Null}" FontFamily="Times New Roman"/>
+                   
+                    </Grid>
+                    <Grid Height="20" FlowDirection="{DynamicResource FlowDirectionLR}" DockPanel.Dock="Top" Background="#174ca8">
+                    </Grid>
+                </DockPanel>
+            </Border>
+           
+            
+          
+            <Image Grid.Column="0" Margin="-68,-26,-10,0"   Source="../Image/Pic/waterlogin.png" Grid.RowSpan="5"/>
+                <Grid Name="GridLogin" Grid.Column="1"  Grid.Row="2"  HorizontalAlignment="Center"  VerticalAlignment="Center"  
+              Grid.RowSpan="5" Grid.ColumnSpan="4" Height="110" Margin="0,2,10,45" Width="342">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*" ></ColumnDefinition>
+                    <ColumnDefinition Width="1*" ></ColumnDefinition>
+                    <ColumnDefinition Width="1*" ></ColumnDefinition>
+                    <ColumnDefinition Width="1*" ></ColumnDefinition>
+                    <ColumnDefinition Width="1*" ></ColumnDefinition>
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"></RowDefinition>
+                    <RowDefinition Height="10*"></RowDefinition>
+                    <RowDefinition  Height="10*"></RowDefinition>
+                    <RowDefinition  Height="10*"></RowDefinition>
+                    <RowDefinition Height="10*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Name="WrongLoginText" Grid.Column="1"  Grid.ColumnSpan="4" Margin="0,-32,0,32" Foreground="Red"/>
+                <Label  Name="UserNameLabel"
+                    Content="{x:Static fieldresoures:FieldResource.UserName}" Grid.Column="0"  Grid.Row="0"  HorizontalAlignment="Right" 
+          HorizontalContentAlignment="Right" Grid.ColumnSpan="1" Grid.RowSpan="2"></Label>
+                <Border  BorderBrush="DarkGray" BorderThickness="1" CornerRadius="5" Grid.Column="1"
+                     Grid.ColumnSpan="4"  Width="160" Grid.Row="0" Background="White">
+                    
+                    <TextBox Name="txtuser" 
+                  Grid.RowSpan="1" BorderBrush="{x:Null}" Background="{x:Null}"
+                         SelectionBrush="{x:Null}" BorderThickness="0"  
+                        Validation.ErrorTemplate="{StaticResource errorEmptyTemplate}" 
+        Validation.Error="NumberError">
+                        <Binding Path="FirstNumber" NotifyOnValidationError="True" 
+                                 UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                            <Binding.ValidationRules>
+                                <local:NumberValidator/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox>
+
+                </Border>
+
+
+                <Label  Name="PasswordLabel"   Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right"
+                 Grid.ColumnSpan="1" Grid.RowSpan="2"
+                           Content="{x:Static fieldresoures:FieldResource.Password}"/>
+                <Border  BorderBrush="DarkGray" BorderThickness="1" CornerRadius="5"
+                    Grid.Column="1"  Grid.Row="2"  Width="160" Background="White" Grid.ColumnSpan="4">
+                  
+                    <PasswordBox Name="txtpass"  Width="160" PasswordChanged="PasswordBox_PasswordChanged"
+                                         BorderBrush="{x:Null}" Background="{x:Null}"
+                         SelectionBrush="{x:Null}" BorderThickness="0" 
+                                 Validation.ErrorTemplate="{StaticResource errorEmptyTemplate}" 
+        Validation.Error="NumberError"  >
+                    </PasswordBox>
+                </Border>
+                <TextBlock  Grid.Column="4"  Grid.Row="1"  Name="tbpass" VerticalAlignment="Bottom"
+                   Visibility="Hidden" HorizontalAlignment="Center" Margin="0,0,27,0" Text="*" Foreground="Red"></TextBlock>
+                <!--<Border   Width="150">-->
+
+                <Button Name="btnlog" 
+                        BorderBrush="DarkGray" BorderThickness="1"
+                        Content="{x:Static fieldresoures:FieldResource.Login}"
+                    Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Background="#174ca8"
+                 Click="btnlog_Click" IsDefault="True"
+                       >
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="IsEnabled" Value="false" />
+                            <Style.Triggers>
+                                <!-- Require the controls to be valid in order to press OK -->
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding ElementName=txtuser, Path=(Validation.HasError)}" Value="false" />
+                                        <Condition Binding="{Binding ElementName=txtpass, Path=(Validation.HasError)}" Value="false" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="IsEnabled" Value="true" />
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                  
+                </Button>
+                <!--</Border>-->
+            </Grid>
+          
+            <loadin:LoadingIndicator Name="LoadingIndicator" Grid.Column="2" Grid.Row="3" SpeedRatio="1.5"  
+                      Focusable="False"      Grid.ColumnSpan="2" Grid.RowSpan="2" IsActive="False" Style="{DynamicResource LoadingIndicatorArcsStyle}"/>
+
+            <Border  BorderBrush="DarkGray" BorderThickness="0" CornerRadius="70" Margin="3,0,3,0"
+                     VerticalAlignment="Bottom" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="6" >
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+
+                        <GradientStop Color="#FF003368" Offset="1"/>
+                        <GradientStop Color="#99b6d8" Offset="0.558"/>
+                        <GradientStop Color="#FF99b6d8" Offset="0.519"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <DockPanel VerticalAlignment="Bottom"  >
+
+                    <StatusBar DockPanel.Dock="Bottom"  Height="20" Background="{x:Null}" />
+                  
+
+                </DockPanel>
+            </Border>
+
+            <Expander Name="ReportExp"   Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="5"
+  HorizontalAlignment="Right"  FlowDirection="{DynamicResource FlowDirectionLR}" 
+  ExpandDirection="Down"  IsExpanded="False" 
+          Foreground="#FF1C2685"  >
+
+                <Expander.Header>
+                    <StackPanel>
+                        <Border Height="5" Width="5" />
+
+                        <Label Name="SettingLabel" Content="{x:Static main:FieldResource.Setting}"/>
+                    </StackPanel>
+                </Expander.Header>
+          
+                <Border BorderBrush="White" BorderThickness="1,1,1,1" CornerRadius="10,10,10,10" Background="#FF81C1E6"
+                   FlowDirection="{DynamicResource FlowDirectionLR}" >
+
+                 
+                    <ScrollViewer
+        CanContentScroll="False" VerticalScrollBarVisibility="Auto"
+              HorizontalScrollBarVisibility="Disabled">
+                        <Grid >
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="3*"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition Height="3*"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition Height="3*"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*"></ColumnDefinition>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="1" Grid.ColumnSpan="2" Orientation="Horizontal"
+                                          FlowDirection="{DynamicResource FlowDirectionRL}">
+                                <RadioButton Margin="0,10,0,13" Name="FrRadioButton" GroupName="Language" 
+VerticalAlignment="Top" Width="70" Height="15" Background="Yellow " Foreground="Blue"
+                        IsChecked="True"     Checked="FrRadioButton_Checked">
+                                    فارسی
+
+                                </RadioButton>
+                                <RadioButton Margin="0,10,0,13" Name="EnRadioButton" GroupName="Language" HorizontalAlignment="Left" VerticalAlignment="Top" Width="70" Height="15" Background="Yellow " Foreground="Blue" Checked="EnRadioButton_Checked">
+
+                                    English
+
+                                </RadioButton>
+                            </StackPanel>
+
+                            <Line 
+                   Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                      Style="{StaticResource LineStyle}"  ></Line>
+
+                            <Label  Name="IPLabel"   Content="{x:Static management:FieldResource.IP}" Grid.Row="2" Grid.Column="1" Padding="5,0,5,0"
+                                        FlowDirection="{DynamicResource FlowDirectionRL}"></Label>
+                            <!--<xctk:MaskedTextBox Margin="20,10,5,0"  Grid.Row="2" Grid.Column="0" x:Name="TxtIP"  Mask="000.000.000.000"
+                                FlowDirection="{DynamicResource FlowDirectionLR}" />-->
+                            <local:IPAddressControl   Grid.Row="2" Grid.Column="0" x:Name="TxtIP"    />
+
+                            <Line Style="{StaticResource LineStyle}"
+                   Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" ></Line>
+
+
+                            <Label  Name="PortLabel"  Content="{x:Static management:FieldResource.Port}"  Grid.Row="4" Grid.Column="1" 
+                                    Padding="5,0,5,0" FlowDirection="{DynamicResource FlowDirectionRL}"></Label>
+
+
+
+
+                            <Border  BorderBrush="DarkGray" BorderThickness="1" CornerRadius="5"  Grid.Row="4" Grid.Column="0" 
+                     Width="100" Background="White">
+
+                                  <xctk:MaskedTextBox  Name="TxtPort"
+                  Grid.RowSpan="1" BorderBrush="{x:Null}" Background="{x:Null}"
+                         SelectionBrush="{x:Null}" BorderThickness="0"    ValueDataType="{x:Type sys:Int64}"
+                                FlowDirection="LeftToRight"
+                        />
+                                
+
+                            </Border>
+                       
+                            <Line Style="{StaticResource LineStyle}"
+                   Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"></Line>
+                        </Grid>
+                    </ScrollViewer>
+                </Border>
+
+            </Expander>
+        </Grid>
+    </Border>
+</Window>

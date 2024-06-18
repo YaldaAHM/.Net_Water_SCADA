@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="ReporterWPF.WaterStations.Controls.SolarControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ReporterWPF.WaterStations.Controls"
+             xmlns:converter="clr-namespace:ReporterWPF.WaterStations.Converter"
+             xmlns:fieldresoures="clr-namespace:Reporter.Localization.Control;assembly=Reporter.Localization"
+             mc:Ignorable="d" 
+             >
+    <UserControl.Resources>
+        <converter:VoltageConverter x:Key="VoltageConverter"/>
+    </UserControl.Resources>
+    <Grid ToolTip="{x:Static fieldresoures:FieldResource.SolarPanel}">
+        <Grid.RowDefinitions><RowDefinition Height="2*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Image  Grid.Row="1" Grid.RowSpan="1" Grid.ColumnSpan="4" Grid.Column="0" Margin="-10" Source="../../Image/Pic/solar2.png"></Image>
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal"  FlowDirection="RightToLeft">
+            <TextBlock Text="{x:Static fieldresoures:FieldResource.Voltage}"></TextBlock>
+        <TextBlock  Text="{Binding Path=Voltage_Panel, Converter={StaticResource VoltageConverter}, ConverterParameter=Solar}"></TextBlock>
+   </StackPanel> </Grid>
+</UserControl>

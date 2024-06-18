@@ -1,0 +1,1058 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="ABFAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
+        <EntityType Name="DataSends">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" Type="int" />
+          <Property Name="ID_Station" Type="int" />
+          <Property Name="DateTime" Type="datetime" />
+          <Property Name="BO0" Type="tinyint" />
+          <Property Name="BO1" Type="tinyint" />
+          <Property Name="BO2" Type="tinyint" />
+          <Property Name="BO3" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Node_Mapping">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" Type="int" />
+          <Property Name="ID_Station" Type="int" />
+          <Property Name="Name" MaxLength="50" Type="nvarchar" />
+          <Property Name="DateTimeCreate" Type="datetime" />
+          <Property Name="DateTimeEdit" Type="datetime" />
+          <Property Name="IsPumpStation" Type="bit" />
+          <Property Name="DB0" Nullable="false" Type="tinyint" />
+          <Property Name="DB1" Nullable="false" Type="tinyint" />
+          <Property Name="DB2" Nullable="false" Type="tinyint" />
+          <Property Name="DB3" Nullable="false" Type="tinyint" />
+          <Property Name="DB4" Nullable="false" Type="tinyint" />
+          <Property Name="DB5" Nullable="false" Type="tinyint" />
+          <Property Name="DB6" Nullable="false" Type="tinyint" />
+          <Property Name="DB7" Nullable="false" Type="tinyint" />
+          <Property Name="DB8" Nullable="false" Type="tinyint" />
+          <Property Name="DB9" Nullable="false" Type="tinyint" />
+          <Property Name="AI0" Nullable="false" Type="smallint" />
+          <Property Name="AI1" Nullable="false" Type="smallint" />
+          <Property Name="AI2" Nullable="false" Type="smallint" />
+          <Property Name="AI3" Nullable="false" Type="smallint" />
+          <Property Name="AI4" Nullable="false" Type="smallint" />
+          <Property Name="AI5" Nullable="false" Type="smallint" />
+          <Property Name="AI6" Nullable="false" Type="smallint" />
+          <Property Name="AI7" Nullable="false" Type="smallint" />
+          <Property Name="AI8" Nullable="false" Type="smallint" />
+          <Property Name="AI9" Nullable="false" Type="smallint" />
+          <Property Name="AI10" Nullable="false" Type="smallint" />
+          <Property Name="AI11" Nullable="false" Type="smallint" />
+          <Property Name="AI12" Nullable="false" Type="smallint" />
+          <Property Name="AI13" Nullable="false" Type="smallint" />
+          <Property Name="AI14" Nullable="false" Type="smallint" />
+          <Property Name="AI15" Nullable="false" Type="smallint" />
+          <Property Name="AI16" Nullable="false" Type="smallint" />
+          <Property Name="AI17" Nullable="false" Type="smallint" />
+          <Property Name="AI18" Nullable="false" Type="smallint" />
+          <Property Name="AI19" Nullable="false" Type="smallint" />
+          <Property Name="AI20" Nullable="false" Type="smallint" />
+          <Property Name="AI21" Nullable="false" Type="smallint" />
+          <Property Name="AI22" Nullable="false" Type="smallint" />
+          <Property Name="AI23" Nullable="false" Type="smallint" />
+          <Property Name="AI24" Nullable="false" Type="smallint" />
+          <Property Name="AI25" Nullable="false" Type="smallint" />
+          <Property Name="AI26" Nullable="false" Type="smallint" />
+          <Property Name="AI27" Nullable="false" Type="smallint" />
+          <Property Name="AI28" Nullable="false" Type="smallint" />
+          <Property Name="AI29" Nullable="false" Type="smallint" />
+          <Property Name="Low_A0" Nullable="false" Type="real" />
+          <Property Name="High_A0" Nullable="false" Type="real" />
+          <Property Name="Low_A1" Nullable="false" Type="real" />
+          <Property Name="High_A1" Nullable="false" Type="real" />
+          <Property Name="Low_A2" Nullable="false" Type="real" />
+          <Property Name="High_A2" Nullable="false" Type="real" />
+          <Property Name="Low_A3" Nullable="false" Type="real" />
+          <Property Name="High_A3" Nullable="false" Type="real" />
+          <Property Name="Low_A4" Nullable="false" Type="real" />
+          <Property Name="High_A4" Nullable="false" Type="real" />
+          <Property Name="Low_A5" Nullable="false" Type="real" />
+          <Property Name="High_A5" Nullable="false" Type="real" />
+          <Property Name="Low_A6" Nullable="false" Type="real" />
+          <Property Name="High_A6" Nullable="false" Type="real" />
+          <Property Name="Low_A7" Nullable="false" Type="real" />
+          <Property Name="High_A7" Nullable="false" Type="real" />
+          <Property Name="Low_A8" Nullable="false" Type="real" />
+          <Property Name="High_A8" Nullable="false" Type="real" />
+          <Property Name="Low_A9" Nullable="false" Type="real" />
+          <Property Name="High_A9" Nullable="false" Type="real" />
+          <Property Name="Low_A10" Nullable="false" Type="real" />
+          <Property Name="High_A10" Nullable="false" Type="real" />
+          <Property Name="Low_A11" Nullable="false" Type="real" />
+          <Property Name="High_A11" Nullable="false" Type="real" />
+          <Property Name="Low_A12" Nullable="false" Type="real" />
+          <Property Name="High_A12" Nullable="false" Type="real" />
+          <Property Name="Low_A13" Nullable="false" Type="real" />
+          <Property Name="High_A13" Nullable="false" Type="real" />
+          <Property Name="Low_A14" Nullable="false" Type="real" />
+          <Property Name="High_A14" Nullable="false" Type="real" />
+          <Property Name="Low_A15" Nullable="false" Type="real" />
+          <Property Name="High_A15" Nullable="false" Type="real" />
+          <Property Name="Low_A16" Nullable="false" Type="real" />
+          <Property Name="High_A16" Nullable="false" Type="real" />
+          <Property Name="Low_A17" Nullable="false" Type="real" />
+          <Property Name="High_A17" Nullable="false" Type="real" />
+          <Property Name="Low_A18" Nullable="false" Type="real" />
+          <Property Name="High_A18" Nullable="false" Type="real" />
+          <Property Name="Low_A19" Nullable="false" Type="real" />
+          <Property Name="High_A19" Nullable="false" Type="real" />
+          <Property Name="Low_A20" Nullable="false" Type="real" />
+          <Property Name="High_A20" Nullable="false" Type="real" />
+          <Property Name="Low_A21" Nullable="false" Type="real" />
+          <Property Name="High_A21" Nullable="false" Type="real" />
+          <Property Name="Low_A22" Nullable="false" Type="real" />
+          <Property Name="High_A22" Nullable="false" Type="real" />
+          <Property Name="Low_A23" Nullable="false" Type="real" />
+          <Property Name="High_A23" Nullable="false" Type="real" />
+          <Property Name="Low_A24" Nullable="false" Type="real" />
+          <Property Name="High_A24" Nullable="false" Type="real" />
+          <Property Name="Low_A25" Nullable="false" Type="real" />
+          <Property Name="High_A25" Nullable="false" Type="real" />
+          <Property Name="Low_A26" Nullable="false" Type="real" />
+          <Property Name="High_A26" Nullable="false" Type="real" />
+          <Property Name="Low_A27" Nullable="false" Type="real" />
+          <Property Name="High_A27" Nullable="false" Type="real" />
+          <Property Name="Low_A28" Nullable="false" Type="real" />
+          <Property Name="High_A28" Nullable="false" Type="real" />
+          <Property Name="Low_A29" Nullable="false" Type="real" />
+          <Property Name="High_A29" Nullable="false" Type="real" />
+        </EntityType>
+        <EntityType Name="Pump_Station">
+          <Key>
+            <PropertyRef Name="Number" />
+          </Key>
+          <Property Name="Number" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="DateTime" Type="datetime" />
+          <Property Name="ID" Type="int" />
+          <Property Name="ID_station" Type="int" />
+          <Property Name="RTU" Nullable="false" Type="tinyint" />
+          <Property Name="RF" Nullable="false" Type="tinyint" />
+          <Property Name="Motor" Nullable="false" Type="tinyint" />
+          <Property Name="Error" Nullable="false" Type="tinyint" />
+          <Property Name="DB4" Nullable="false" Type="tinyint" />
+          <Property Name="DB5" Nullable="false" Type="tinyint" />
+          <Property Name="DB6" Nullable="false" Type="tinyint" />
+          <Property Name="DB7" Nullable="false" Type="tinyint" />
+          <Property Name="DB8" Nullable="false" Type="tinyint" />
+          <Property Name="DB9" Nullable="false" Type="tinyint" />
+          <Property Name="Voltage_Input" Nullable="false" Type="real" />
+          <Property Name="Voltage_Batt" Nullable="false" Type="real" />
+          <Property Name="Voltage_Line1" Nullable="false" Type="real" />
+          <Property Name="Voltage_Line2" Nullable="false" Type="real" />
+          <Property Name="Voltage_Line3" Nullable="false" Type="real" />
+          <Property Name="Current_Line1" Nullable="false" Type="real" />
+          <Property Name="Current_Line2" Nullable="false" Type="real" />
+          <Property Name="Current_Line3" Nullable="false" Type="real" />
+          <Property Name="Power" Nullable="false" Type="real" />
+          <Property Name="PF" Nullable="false" Type="real" />
+          <Property Name="Freq" Nullable="false" Type="real" />
+          <Property Name="PH" Nullable="false" Type="real" />
+          <Property Name="Turbility" Nullable="false" Type="real" />
+          <Property Name="Cl" Nullable="false" Type="real" />
+          <Property Name="AI14" Nullable="false" Type="real" />
+          <Property Name="AI15" Nullable="false" Type="real" />
+          <Property Name="AI16" Nullable="false" Type="real" />
+          <Property Name="AI17" Nullable="false" Type="real" />
+          <Property Name="AI18" Nullable="false" Type="real" />
+          <Property Name="AI19" Nullable="false" Type="real" />
+          <Property Name="AI20" Nullable="false" Type="real" />
+          <Property Name="AI21" Nullable="false" Type="real" />
+          <Property Name="AI22" Nullable="false" Type="real" />
+          <Property Name="AI23" Nullable="false" Type="real" />
+          <Property Name="AI24" Nullable="false" Type="real" />
+          <Property Name="AI25" Nullable="false" Type="real" />
+          <Property Name="AI26" Nullable="false" Type="real" />
+          <Property Name="AI27" Nullable="false" Type="real" />
+          <Property Name="AI28" Nullable="false" Type="real" />
+          <Property Name="AI29" Nullable="false" Type="real" />
+          <Property Name="Counter1" Nullable="false" Type="int" />
+          <Property Name="Counter2" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="ReporterConnectUsers">
+          <Key>
+            <PropertyRef Name="Number" />
+          </Key>
+          <Property Name="Number" Nullable="false" StoreGeneratedPattern="Identity" Type="bigint" />
+          <Property Name="Users" MaxLength="20" Type="nchar" />
+          <Property Name="Pass" MaxLength="20" Type="nchar" />
+          <Property Name="DataTimeConnect" Type="datetime" />
+          <Property Name="IP" MaxLength="20" Type="nchar" />
+          <Property Name="Mac" MaxLength="20" Type="nchar" />
+          <Property Name="Serail" MaxLength="20" Type="nchar" />
+          <Property Name="Type" MaxLength="20" Type="nchar" />
+          <Property Name="OS" MaxLength="20" Type="nchar" />
+          <Property Name="Latitude" Type="real" />
+          <Property Name="Longitude" Type="real" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ABFA.dbo.SIMCard' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SIMCard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="ID_Station" Type="int" />
+          <Property Name="ID_Type" Type="smallint" />
+          <Property Name="ID_Company" Type="smallint" />
+          <Property Name="Number" Type="int" />
+          <Property Name="Description" MaxLength="350" Type="nvarchar" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ABFA.dbo.SimCardCharge' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SimCardCharge">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_SimCard" />
+          </Key>
+          <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="ID_SimCard" Nullable="false" Type="int" />
+          <Property Name="ChargeDate" Type="date" />
+          <Property Name="ChargeAmount" Type="float" />
+          <Property Name="Description" MaxLength="350" Type="nvarchar" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ABFA.dbo.State' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="ID_State" />
+            <PropertyRef Name="State" />
+          </Key>
+          <Property Name="ID_State" Nullable="false" Type="int" />
+          <Property Name="State" Nullable="false" MaxLength="50" Type="nvarchar" />
+        </EntityType>
+        <EntityType Name="StationsABFAs">
+          <Key>
+            <PropertyRef Name="ID_Station" />
+          </Key>
+          <Property Name="ID_Station" Nullable="false" Type="bigint" />
+          <Property Name="DateTimeCreate" Type="datetime" />
+          <Property Name="DateTimeUpdate" Type="datetime" />
+          <Property Name="Name" MaxLength="50" Type="nvarchar" />
+          <Property Name="State" MaxLength="50" Type="nvarchar" />
+          <Property Name="ID_State" Type="int" />
+          <Property Name="Longitude" Type="real" />
+          <Property Name="latitude" Type="real" />
+          <Property Name="Population" Type="bigint" />
+          <Property Name="Pic" Type="varbinary(max)" />
+          <Property Name="PicXml" Type="nvarchar(max)" />
+          <Property Name="other" MaxLength="50" Type="nvarchar" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Nullable="false" MaxLength="128" Type="nvarchar" />
+          <Property Name="principal_id" Nullable="false" Type="int" />
+          <Property Name="diagram_id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UsersABFAs">
+          <Key>
+            <PropertyRef Name="ID_User" />
+          </Key>
+          <Property Name="ID_User" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Name" MaxLength="50" Type="nvarchar" />
+          <Property Name="UserAbfa" MaxLength="50" Type="nvarchar" />
+          <Property Name="PassAbfa" MaxLength="50" Type="nvarchar" />
+          <Property Name="Role" Type="int" />
+          <Property Name="ID_State" Type="int" />
+          <Property Name="Station" Type="nvarchar(max)" />
+          <Property Name="PicUser" Type="varbinary(max)" />
+          <Property Name="DateTimeUser" Type="datetime" />
+          <Property Name="XmlUser" Type="nvarchar(max)" />
+          <Property Name="other1" MaxLength="50" Type="nvarchar" />
+          <Property Name="other2" MaxLength="50" Type="nvarchar" />
+          <Property Name="other3" MaxLength="50" Type="nvarchar" />
+          <Property Name="other4" MaxLength="50" Type="nvarchar" />
+          <Property Name="other5" MaxLength="50" Type="nvarchar" />
+        </EntityType>
+        <EntityType Name="Userws">
+          <Key>
+            <PropertyRef Name="Number_User" />
+          </Key>
+          <Property Name="Number_User" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="User_ABFA" MaxLength="50" Type="nvarchar" />
+          <Property Name="Pass_ABAF" MaxLength="50" Type="nvarchar" />
+          <Property Name="Role" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="VersionApps">
+          <Key>
+            <PropertyRef Name="number" />
+          </Key>
+          <Property Name="number" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="version" Type="nvarchar(max)" />
+          <Property Name="Type" Type="nvarchar(max)" />
+          <Property Name="Acsses" Type="bit" />
+          <Property Name="Company" Type="nvarchar(max)" />
+          <Property Name="Created" Type="nvarchar(max)" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="Link" Type="nvarchar(max)" />
+          <Property Name="other" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Water_Supply">
+          <Key>
+            <PropertyRef Name="Number" />
+          </Key>
+          <Property Name="Number" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="DateTime" Type="datetime" />
+          <Property Name="ID" Type="int" />
+          <Property Name="ID_station" Type="int" />
+          <Property Name="Logger" Nullable="false" Type="tinyint" />
+          <Property Name="RF" Nullable="false" Type="tinyint" />
+          <Property Name="DB2" Nullable="false" Type="tinyint" />
+          <Property Name="DB3" Nullable="false" Type="tinyint" />
+          <Property Name="DB4" Nullable="false" Type="tinyint" />
+          <Property Name="Voltage_Panel" Nullable="false" Type="real" />
+          <Property Name="Voltage_Batt" Nullable="false" Type="real" />
+          <Property Name="Level_water" Nullable="false" Type="real" />
+          <Property Name="TEMP" Nullable="false" Type="real" />
+          <Property Name="AI4" Nullable="false" Type="real" />
+          <Property Name="AI5" Nullable="false" Type="real" />
+          <Property Name="AI6" Nullable="false" Type="real" />
+          <Property Name="AI7" Nullable="false" Type="real" />
+          <Property Name="AI8" Nullable="false" Type="real" />
+          <Property Name="AI9" Nullable="false" Type="real" />
+          <Property Name="Counter1" Nullable="false" Type="int" />
+          <Property Name="Counter2" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityContainer Name="ABFAModelStoreContainer">
+          <EntitySet Name="DataSends" EntityType="Self.DataSends" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Node_Mapping" EntityType="Self.Node_Mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pump_Station" EntityType="Self.Pump_Station" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReporterConnectUsers" EntityType="Self.ReporterConnectUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StationsABFAs" EntityType="Self.StationsABFAs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersABFAs" EntityType="Self.UsersABFAs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Userws" EntityType="Self.Userws" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VersionApps" EntityType="Self.VersionApps" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Water_Supply" EntityType="Self.Water_Supply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SIMCard" EntityType="Self.SIMCard" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SIMCard].[ID] AS [ID], 
+    [SIMCard].[ID_Station] AS [ID_Station], 
+    [SIMCard].[ID_Type] AS [ID_Type], 
+    [SIMCard].[ID_Company] AS [ID_Company], 
+    [SIMCard].[Number] AS [Number], 
+    [SIMCard].[Description] AS [Description]
+    FROM [dbo].[SIMCard] AS [SIMCard]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SimCardCharge" EntityType="Self.SimCardCharge" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SimCardCharge].[ID] AS [ID], 
+    [SimCardCharge].[ID_SimCard] AS [ID_SimCard], 
+    [SimCardCharge].[ChargeDate] AS [ChargeDate], 
+    [SimCardCharge].[ChargeAmount] AS [ChargeAmount], 
+    [SimCardCharge].[Description] AS [Description]
+    FROM [dbo].[SimCardCharge] AS [SimCardCharge]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="State" EntityType="Self.State" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [State].[ID_State] AS [ID_State], 
+    [State].[State] AS [State]
+    FROM [dbo].[State] AS [State]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ABFAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DataSend">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID_Station" Type="Int32" />
+          <Property Name="DateTime" Type="DateTime" Precision="3" />
+          <Property Name="BO0" Type="Byte" />
+          <Property Name="BO1" Type="Byte" />
+          <Property Name="BO2" Type="Byte" />
+          <Property Name="BO3" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Node_Mapping">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID_Station" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateTimeCreate" Type="DateTime" Precision="3" />
+          <Property Name="DateTimeEdit" Type="DateTime" Precision="3" />
+          <Property Name="IsPumpStation" Type="Boolean" />
+          <Property Name="DB0" Type="Byte" Nullable="false" />
+          <Property Name="DB1" Type="Byte" Nullable="false" />
+          <Property Name="DB2" Type="Byte" Nullable="false" />
+          <Property Name="DB3" Type="Byte" Nullable="false" />
+          <Property Name="DB4" Type="Byte" Nullable="false" />
+          <Property Name="DB5" Type="Byte" Nullable="false" />
+          <Property Name="DB6" Type="Byte" Nullable="false" />
+          <Property Name="DB7" Type="Byte" Nullable="false" />
+          <Property Name="DB8" Type="Byte" Nullable="false" />
+          <Property Name="DB9" Type="Byte" Nullable="false" />
+          <Property Name="AI0" Type="Int16" Nullable="false" />
+          <Property Name="AI1" Type="Int16" Nullable="false" />
+          <Property Name="AI2" Type="Int16" Nullable="false" />
+          <Property Name="AI3" Type="Int16" Nullable="false" />
+          <Property Name="AI4" Type="Int16" Nullable="false" />
+          <Property Name="AI5" Type="Int16" Nullable="false" />
+          <Property Name="AI6" Type="Int16" Nullable="false" />
+          <Property Name="AI7" Type="Int16" Nullable="false" />
+          <Property Name="AI8" Type="Int16" Nullable="false" />
+          <Property Name="AI9" Type="Int16" Nullable="false" />
+          <Property Name="AI10" Type="Int16" Nullable="false" />
+          <Property Name="AI11" Type="Int16" Nullable="false" />
+          <Property Name="AI12" Type="Int16" Nullable="false" />
+          <Property Name="AI13" Type="Int16" Nullable="false" />
+          <Property Name="AI14" Type="Int16" Nullable="false" />
+          <Property Name="AI15" Type="Int16" Nullable="false" />
+          <Property Name="AI16" Type="Int16" Nullable="false" />
+          <Property Name="AI17" Type="Int16" Nullable="false" />
+          <Property Name="AI18" Type="Int16" Nullable="false" />
+          <Property Name="AI19" Type="Int16" Nullable="false" />
+          <Property Name="AI20" Type="Int16" Nullable="false" />
+          <Property Name="AI21" Type="Int16" Nullable="false" />
+          <Property Name="AI22" Type="Int16" Nullable="false" />
+          <Property Name="AI23" Type="Int16" Nullable="false" />
+          <Property Name="AI24" Type="Int16" Nullable="false" />
+          <Property Name="AI25" Type="Int16" Nullable="false" />
+          <Property Name="AI26" Type="Int16" Nullable="false" />
+          <Property Name="AI27" Type="Int16" Nullable="false" />
+          <Property Name="AI28" Type="Int16" Nullable="false" />
+          <Property Name="AI29" Type="Int16" Nullable="false" />
+          <Property Name="Low_A0" Type="Single" Nullable="false" />
+          <Property Name="High_A0" Type="Single" Nullable="false" />
+          <Property Name="Low_A1" Type="Single" Nullable="false" />
+          <Property Name="High_A1" Type="Single" Nullable="false" />
+          <Property Name="Low_A2" Type="Single" Nullable="false" />
+          <Property Name="High_A2" Type="Single" Nullable="false" />
+          <Property Name="Low_A3" Type="Single" Nullable="false" />
+          <Property Name="High_A3" Type="Single" Nullable="false" />
+          <Property Name="Low_A4" Type="Single" Nullable="false" />
+          <Property Name="High_A4" Type="Single" Nullable="false" />
+          <Property Name="Low_A5" Type="Single" Nullable="false" />
+          <Property Name="High_A5" Type="Single" Nullable="false" />
+          <Property Name="Low_A6" Type="Single" Nullable="false" />
+          <Property Name="High_A6" Type="Single" Nullable="false" />
+          <Property Name="Low_A7" Type="Single" Nullable="false" />
+          <Property Name="High_A7" Type="Single" Nullable="false" />
+          <Property Name="Low_A8" Type="Single" Nullable="false" />
+          <Property Name="High_A8" Type="Single" Nullable="false" />
+          <Property Name="Low_A9" Type="Single" Nullable="false" />
+          <Property Name="High_A9" Type="Single" Nullable="false" />
+          <Property Name="Low_A10" Type="Single" Nullable="false" />
+          <Property Name="High_A10" Type="Single" Nullable="false" />
+          <Property Name="Low_A11" Type="Single" Nullable="false" />
+          <Property Name="High_A11" Type="Single" Nullable="false" />
+          <Property Name="Low_A12" Type="Single" Nullable="false" />
+          <Property Name="High_A12" Type="Single" Nullable="false" />
+          <Property Name="Low_A13" Type="Single" Nullable="false" />
+          <Property Name="High_A13" Type="Single" Nullable="false" />
+          <Property Name="Low_A14" Type="Single" Nullable="false" />
+          <Property Name="High_A14" Type="Single" Nullable="false" />
+          <Property Name="Low_A15" Type="Single" Nullable="false" />
+          <Property Name="High_A15" Type="Single" Nullable="false" />
+          <Property Name="Low_A16" Type="Single" Nullable="false" />
+          <Property Name="High_A16" Type="Single" Nullable="false" />
+          <Property Name="Low_A17" Type="Single" Nullable="false" />
+          <Property Name="High_A17" Type="Single" Nullable="false" />
+          <Property Name="Low_A18" Type="Single" Nullable="false" />
+          <Property Name="High_A18" Type="Single" Nullable="false" />
+          <Property Name="Low_A19" Type="Single" Nullable="false" />
+          <Property Name="High_A19" Type="Single" Nullable="false" />
+          <Property Name="Low_A20" Type="Single" Nullable="false" />
+          <Property Name="High_A20" Type="Single" Nullable="false" />
+          <Property Name="Low_A21" Type="Single" Nullable="false" />
+          <Property Name="High_A21" Type="Single" Nullable="false" />
+          <Property Name="Low_A22" Type="Single" Nullable="false" />
+          <Property Name="High_A22" Type="Single" Nullable="false" />
+          <Property Name="Low_A23" Type="Single" Nullable="false" />
+          <Property Name="High_A23" Type="Single" Nullable="false" />
+          <Property Name="Low_A24" Type="Single" Nullable="false" />
+          <Property Name="High_A24" Type="Single" Nullable="false" />
+          <Property Name="Low_A25" Type="Single" Nullable="false" />
+          <Property Name="High_A25" Type="Single" Nullable="false" />
+          <Property Name="Low_A26" Type="Single" Nullable="false" />
+          <Property Name="High_A26" Type="Single" Nullable="false" />
+          <Property Name="Low_A27" Type="Single" Nullable="false" />
+          <Property Name="High_A27" Type="Single" Nullable="false" />
+          <Property Name="Low_A28" Type="Single" Nullable="false" />
+          <Property Name="High_A28" Type="Single" Nullable="false" />
+          <Property Name="Low_A29" Type="Single" Nullable="false" />
+          <Property Name="High_A29" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pump_Station">
+          <Key>
+            <PropertyRef Name="Number" />
+          </Key>
+          <Property Name="Number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateTime" Type="DateTime" Precision="3" />
+          <Property Name="ID" Type="Int32" />
+          <Property Name="ID_station" Type="Int32" />
+          <Property Name="RTU" Type="Byte" Nullable="false" />
+          <Property Name="RF" Type="Byte" Nullable="false" />
+          <Property Name="Motor" Type="Byte" Nullable="false" />
+          <Property Name="Error" Type="Byte" Nullable="false" />
+          <Property Name="DB4" Type="Byte" Nullable="false" />
+          <Property Name="DB5" Type="Byte" Nullable="false" />
+          <Property Name="DB6" Type="Byte" Nullable="false" />
+          <Property Name="DB7" Type="Byte" Nullable="false" />
+          <Property Name="DB8" Type="Byte" Nullable="false" />
+          <Property Name="DB9" Type="Byte" Nullable="false" />
+          <Property Name="Voltage_Input" Type="Single" Nullable="false" />
+          <Property Name="Voltage_Batt" Type="Single" Nullable="false" />
+          <Property Name="Voltage_Line1" Type="Single" Nullable="false" />
+          <Property Name="Voltage_Line2" Type="Single" Nullable="false" />
+          <Property Name="Voltage_Line3" Type="Single" Nullable="false" />
+          <Property Name="Current_Line1" Type="Single" Nullable="false" />
+          <Property Name="Current_Line2" Type="Single" Nullable="false" />
+          <Property Name="Current_Line3" Type="Single" Nullable="false" />
+          <Property Name="Power" Type="Single" Nullable="false" />
+          <Property Name="PF" Type="Single" Nullable="false" />
+          <Property Name="Freq" Type="Single" Nullable="false" />
+          <Property Name="PH" Type="Single" Nullable="false" />
+          <Property Name="Turbility" Type="Single" Nullable="false" />
+          <Property Name="Cl" Type="Single" Nullable="false" />
+          <Property Name="AI14" Type="Single" Nullable="false" />
+          <Property Name="AI15" Type="Single" Nullable="false" />
+          <Property Name="AI16" Type="Single" Nullable="false" />
+          <Property Name="AI17" Type="Single" Nullable="false" />
+          <Property Name="AI18" Type="Single" Nullable="false" />
+          <Property Name="AI19" Type="Single" Nullable="false" />
+          <Property Name="AI20" Type="Single" Nullable="false" />
+          <Property Name="AI21" Type="Single" Nullable="false" />
+          <Property Name="AI22" Type="Single" Nullable="false" />
+          <Property Name="AI23" Type="Single" Nullable="false" />
+          <Property Name="AI24" Type="Single" Nullable="false" />
+          <Property Name="AI25" Type="Single" Nullable="false" />
+          <Property Name="AI26" Type="Single" Nullable="false" />
+          <Property Name="AI27" Type="Single" Nullable="false" />
+          <Property Name="AI28" Type="Single" Nullable="false" />
+          <Property Name="AI29" Type="Single" Nullable="false" />
+          <Property Name="Counter1" Type="Int32" Nullable="false" />
+          <Property Name="Counter2" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReporterConnectUser">
+          <Key>
+            <PropertyRef Name="Number" />
+          </Key>
+          <Property Name="Number" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Users" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Pass" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="DataTimeConnect" Type="DateTime" Precision="3" />
+          <Property Name="IP" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Mac" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Serail" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="OS" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Latitude" Type="Single" />
+          <Property Name="Longitude" Type="Single" />
+        </EntityType>
+        <EntityType Name="StationsABFA">
+          <Key>
+            <PropertyRef Name="ID_Station" />
+          </Key>
+          <Property Name="ID_Station" Type="Int64" Nullable="false" />
+          <Property Name="DateTimeCreate" Type="DateTime" Precision="3" />
+          <Property Name="DateTimeUpdate" Type="DateTime" Precision="3" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_State" Type="Int32" />
+          <Property Name="Longitude" Type="Single" />
+          <Property Name="latitude" Type="Single" />
+          <Property Name="Population" Type="Int64" />
+          <Property Name="Pic" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="PicXml" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="other" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UsersABFA">
+          <Key>
+            <PropertyRef Name="ID_User" />
+          </Key>
+          <Property Name="ID_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserAbfa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PassAbfa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="Int32" />
+          <Property Name="ID_State" Type="Int32" />
+          <Property Name="Station" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PicUser" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="DateTimeUser" Type="DateTime" Precision="3" />
+          <Property Name="XmlUser" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="other1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="other2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="other3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="other4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="other5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Userw">
+          <Key>
+            <PropertyRef Name="Number_User" />
+          </Key>
+          <Property Name="Number_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_ABFA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pass_ABAF" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Role" Type="Byte" />
+        </EntityType>
+        <EntityType Name="VersionApp">
+          <Key>
+            <PropertyRef Name="number" />
+          </Key>
+          <Property Name="number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Acsses" Type="Boolean" />
+          <Property Name="Company" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="other" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Water_Supply">
+          <Key>
+            <PropertyRef Name="Number" />
+          </Key>
+          <Property Name="Number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateTime" Type="DateTime" Precision="3" />
+          <Property Name="ID" Type="Int32" />
+          <Property Name="ID_station" Type="Int32" />
+          <Property Name="Logger" Type="Byte" Nullable="false" />
+          <Property Name="RF" Type="Byte" Nullable="false" />
+          <Property Name="DB2" Type="Byte" Nullable="false" />
+          <Property Name="DB3" Type="Byte" Nullable="false" />
+          <Property Name="DB4" Type="Byte" Nullable="false" />
+          <Property Name="Voltage_Panel" Type="Single" Nullable="false" />
+          <Property Name="Voltage_Batt" Type="Single" Nullable="false" />
+          <Property Name="Level_water" Type="Single" Nullable="false" />
+          <Property Name="TEMP" Type="Single" Nullable="false" />
+          <Property Name="AI4" Type="Single" Nullable="false" />
+          <Property Name="AI5" Type="Single" Nullable="false" />
+          <Property Name="AI6" Type="Single" Nullable="false" />
+          <Property Name="AI7" Type="Single" Nullable="false" />
+          <Property Name="AI8" Type="Single" Nullable="false" />
+          <Property Name="AI9" Type="Single" Nullable="false" />
+          <Property Name="Counter1" Type="Int32" Nullable="false" />
+          <Property Name="Counter2" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ABFAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DataSends" EntityType="Self.DataSend" />
+          <EntitySet Name="Node_Mapping" EntityType="Self.Node_Mapping" />
+          <EntitySet Name="Pump_Station" EntityType="Self.Pump_Station" />
+          <EntitySet Name="ReporterConnectUsers" EntityType="Self.ReporterConnectUser" />
+          <EntitySet Name="StationsABFAs" EntityType="Self.StationsABFA" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="UsersABFAs" EntityType="Self.UsersABFA" />
+          <EntitySet Name="Userws" EntityType="Self.Userw" />
+          <EntitySet Name="VersionApps" EntityType="Self.VersionApp" />
+          <EntitySet Name="Water_Supply" EntityType="Self.Water_Supply" />
+          <EntitySet Name="SIMCards" EntityType="ABFAModel.SIMCard" />
+          <EntitySet Name="SimCardCharges" EntityType="ABFAModel.SimCardCharge" />
+          <EntitySet Name="States" EntityType="ABFAModel.State" />
+        </EntityContainer>
+        <EntityType Name="SIMCard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Station" Type="Int32" />
+          <Property Name="ID_Type" Type="Int16" />
+          <Property Name="ID_Company" Type="Int16" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SimCardCharge">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="ID_SimCard" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_SimCard" Type="Int32" Nullable="false" />
+          <Property Name="ChargeDate" Type="DateTime" Precision="0" />
+          <Property Name="ChargeAmount" Type="Double" />
+          <Property Name="Description" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="ID_State" />
+            <PropertyRef Name="State1" />
+          </Key>
+          <Property Name="ID_State" Type="Int32" Nullable="false" />
+          <Property Name="State1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ABFAModelStoreContainer" CdmEntityContainer="ABFAEntities">
+          <EntitySetMapping Name="DataSends">
+            <EntityTypeMapping TypeName="ABFAModel.DataSend">
+              <MappingFragment StoreEntitySet="DataSends">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_Station" ColumnName="ID_Station" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="BO0" ColumnName="BO0" />
+                <ScalarProperty Name="BO1" ColumnName="BO1" />
+                <ScalarProperty Name="BO2" ColumnName="BO2" />
+                <ScalarProperty Name="BO3" ColumnName="BO3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Node_Mapping">
+            <EntityTypeMapping TypeName="ABFAModel.Node_Mapping">
+              <MappingFragment StoreEntitySet="Node_Mapping">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_Station" ColumnName="ID_Station" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DateTimeCreate" ColumnName="DateTimeCreate" />
+                <ScalarProperty Name="DateTimeEdit" ColumnName="DateTimeEdit" />
+                <ScalarProperty Name="IsPumpStation" ColumnName="IsPumpStation" />
+                <ScalarProperty Name="DB0" ColumnName="DB0" />
+                <ScalarProperty Name="DB1" ColumnName="DB1" />
+                <ScalarProperty Name="DB2" ColumnName="DB2" />
+                <ScalarProperty Name="DB3" ColumnName="DB3" />
+                <ScalarProperty Name="DB4" ColumnName="DB4" />
+                <ScalarProperty Name="DB5" ColumnName="DB5" />
+                <ScalarProperty Name="DB6" ColumnName="DB6" />
+                <ScalarProperty Name="DB7" ColumnName="DB7" />
+                <ScalarProperty Name="DB8" ColumnName="DB8" />
+                <ScalarProperty Name="DB9" ColumnName="DB9" />
+                <ScalarProperty Name="AI0" ColumnName="AI0" />
+                <ScalarProperty Name="AI1" ColumnName="AI1" />
+                <ScalarProperty Name="AI2" ColumnName="AI2" />
+                <ScalarProperty Name="AI3" ColumnName="AI3" />
+                <ScalarProperty Name="AI4" ColumnName="AI4" />
+                <ScalarProperty Name="AI5" ColumnName="AI5" />
+                <ScalarProperty Name="AI6" ColumnName="AI6" />
+                <ScalarProperty Name="AI7" ColumnName="AI7" />
+                <ScalarProperty Name="AI8" ColumnName="AI8" />
+                <ScalarProperty Name="AI9" ColumnName="AI9" />
+                <ScalarProperty Name="AI10" ColumnName="AI10" />
+                <ScalarProperty Name="AI11" ColumnName="AI11" />
+                <ScalarProperty Name="AI12" ColumnName="AI12" />
+                <ScalarProperty Name="AI13" ColumnName="AI13" />
+                <ScalarProperty Name="AI14" ColumnName="AI14" />
+                <ScalarProperty Name="AI15" ColumnName="AI15" />
+                <ScalarProperty Name="AI16" ColumnName="AI16" />
+                <ScalarProperty Name="AI17" ColumnName="AI17" />
+                <ScalarProperty Name="AI18" ColumnName="AI18" />
+                <ScalarProperty Name="AI19" ColumnName="AI19" />
+                <ScalarProperty Name="AI20" ColumnName="AI20" />
+                <ScalarProperty Name="AI21" ColumnName="AI21" />
+                <ScalarProperty Name="AI22" ColumnName="AI22" />
+                <ScalarProperty Name="AI23" ColumnName="AI23" />
+                <ScalarProperty Name="AI24" ColumnName="AI24" />
+                <ScalarProperty Name="AI25" ColumnName="AI25" />
+                <ScalarProperty Name="AI26" ColumnName="AI26" />
+                <ScalarProperty Name="AI27" ColumnName="AI27" />
+                <ScalarProperty Name="AI28" ColumnName="AI28" />
+                <ScalarProperty Name="AI29" ColumnName="AI29" />
+                <ScalarProperty Name="Low_A0" ColumnName="Low_A0" />
+                <ScalarProperty Name="High_A0" ColumnName="High_A0" />
+                <ScalarProperty Name="Low_A1" ColumnName="Low_A1" />
+                <ScalarProperty Name="High_A1" ColumnName="High_A1" />
+                <ScalarProperty Name="Low_A2" ColumnName="Low_A2" />
+                <ScalarProperty Name="High_A2" ColumnName="High_A2" />
+                <ScalarProperty Name="Low_A3" ColumnName="Low_A3" />
+                <ScalarProperty Name="High_A3" ColumnName="High_A3" />
+                <ScalarProperty Name="Low_A4" ColumnName="Low_A4" />
+                <ScalarProperty Name="High_A4" ColumnName="High_A4" />
+                <ScalarProperty Name="Low_A5" ColumnName="Low_A5" />
+                <ScalarProperty Name="High_A5" ColumnName="High_A5" />
+                <ScalarProperty Name="Low_A6" ColumnName="Low_A6" />
+                <ScalarProperty Name="High_A6" ColumnName="High_A6" />
+                <ScalarProperty Name="Low_A7" ColumnName="Low_A7" />
+                <ScalarProperty Name="High_A7" ColumnName="High_A7" />
+                <ScalarProperty Name="Low_A8" ColumnName="Low_A8" />
+                <ScalarProperty Name="High_A8" ColumnName="High_A8" />
+                <ScalarProperty Name="Low_A9" ColumnName="Low_A9" />
+                <ScalarProperty Name="High_A9" ColumnName="High_A9" />
+                <ScalarProperty Name="Low_A10" ColumnName="Low_A10" />
+                <ScalarProperty Name="High_A10" ColumnName="High_A10" />
+                <ScalarProperty Name="Low_A11" ColumnName="Low_A11" />
+                <ScalarProperty Name="High_A11" ColumnName="High_A11" />
+                <ScalarProperty Name="Low_A12" ColumnName="Low_A12" />
+                <ScalarProperty Name="High_A12" ColumnName="High_A12" />
+                <ScalarProperty Name="Low_A13" ColumnName="Low_A13" />
+                <ScalarProperty Name="High_A13" ColumnName="High_A13" />
+                <ScalarProperty Name="Low_A14" ColumnName="Low_A14" />
+                <ScalarProperty Name="High_A14" ColumnName="High_A14" />
+                <ScalarProperty Name="Low_A15" ColumnName="Low_A15" />
+                <ScalarProperty Name="High_A15" ColumnName="High_A15" />
+                <ScalarProperty Name="Low_A16" ColumnName="Low_A16" />
+                <ScalarProperty Name="High_A16" ColumnName="High_A16" />
+                <ScalarProperty Name="Low_A17" ColumnName="Low_A17" />
+                <ScalarProperty Name="High_A17" ColumnName="High_A17" />
+                <ScalarProperty Name="Low_A18" ColumnName="Low_A18" />
+                <ScalarProperty Name="High_A18" ColumnName="High_A18" />
+                <ScalarProperty Name="Low_A19" ColumnName="Low_A19" />
+                <ScalarProperty Name="High_A19" ColumnName="High_A19" />
+                <ScalarProperty Name="Low_A20" ColumnName="Low_A20" />
+                <ScalarProperty Name="High_A20" ColumnName="High_A20" />
+                <ScalarProperty Name="Low_A21" ColumnName="Low_A21" />
+                <ScalarProperty Name="High_A21" ColumnName="High_A21" />
+                <ScalarProperty Name="Low_A22" ColumnName="Low_A22" />
+                <ScalarProperty Name="High_A22" ColumnName="High_A22" />
+                <ScalarProperty Name="Low_A23" ColumnName="Low_A23" />
+                <ScalarProperty Name="High_A23" ColumnName="High_A23" />
+                <ScalarProperty Name="Low_A24" ColumnName="Low_A24" />
+                <ScalarProperty Name="High_A24" ColumnName="High_A24" />
+                <ScalarProperty Name="Low_A25" ColumnName="Low_A25" />
+                <ScalarProperty Name="High_A25" ColumnName="High_A25" />
+                <ScalarProperty Name="Low_A26" ColumnName="Low_A26" />
+                <ScalarProperty Name="High_A26" ColumnName="High_A26" />
+                <ScalarProperty Name="Low_A27" ColumnName="Low_A27" />
+                <ScalarProperty Name="High_A27" ColumnName="High_A27" />
+                <ScalarProperty Name="Low_A28" ColumnName="Low_A28" />
+                <ScalarProperty Name="High_A28" ColumnName="High_A28" />
+                <ScalarProperty Name="Low_A29" ColumnName="Low_A29" />
+                <ScalarProperty Name="High_A29" ColumnName="High_A29" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pump_Station">
+            <EntityTypeMapping TypeName="ABFAModel.Pump_Station">
+              <MappingFragment StoreEntitySet="Pump_Station">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_station" ColumnName="ID_station" />
+                <ScalarProperty Name="RTU" ColumnName="RTU" />
+                <ScalarProperty Name="RF" ColumnName="RF" />
+                <ScalarProperty Name="Motor" ColumnName="Motor" />
+                <ScalarProperty Name="Error" ColumnName="Error" />
+                <ScalarProperty Name="DB4" ColumnName="DB4" />
+                <ScalarProperty Name="DB5" ColumnName="DB5" />
+                <ScalarProperty Name="DB6" ColumnName="DB6" />
+                <ScalarProperty Name="DB7" ColumnName="DB7" />
+                <ScalarProperty Name="DB8" ColumnName="DB8" />
+                <ScalarProperty Name="DB9" ColumnName="DB9" />
+                <ScalarProperty Name="Voltage_Input" ColumnName="Voltage_Input" />
+                <ScalarProperty Name="Voltage_Batt" ColumnName="Voltage_Batt" />
+                <ScalarProperty Name="Voltage_Line1" ColumnName="Voltage_Line1" />
+                <ScalarProperty Name="Voltage_Line2" ColumnName="Voltage_Line2" />
+                <ScalarProperty Name="Voltage_Line3" ColumnName="Voltage_Line3" />
+                <ScalarProperty Name="Current_Line1" ColumnName="Current_Line1" />
+                <ScalarProperty Name="Current_Line2" ColumnName="Current_Line2" />
+                <ScalarProperty Name="Current_Line3" ColumnName="Current_Line3" />
+                <ScalarProperty Name="Power" ColumnName="Power" />
+                <ScalarProperty Name="PF" ColumnName="PF" />
+                <ScalarProperty Name="Freq" ColumnName="Freq" />
+                <ScalarProperty Name="PH" ColumnName="PH" />
+                <ScalarProperty Name="Turbility" ColumnName="Turbility" />
+                <ScalarProperty Name="Cl" ColumnName="Cl" />
+                <ScalarProperty Name="AI14" ColumnName="AI14" />
+                <ScalarProperty Name="AI15" ColumnName="AI15" />
+                <ScalarProperty Name="AI16" ColumnName="AI16" />
+                <ScalarProperty Name="AI17" ColumnName="AI17" />
+                <ScalarProperty Name="AI18" ColumnName="AI18" />
+                <ScalarProperty Name="AI19" ColumnName="AI19" />
+                <ScalarProperty Name="AI20" ColumnName="AI20" />
+                <ScalarProperty Name="AI21" ColumnName="AI21" />
+                <ScalarProperty Name="AI22" ColumnName="AI22" />
+                <ScalarProperty Name="AI23" ColumnName="AI23" />
+                <ScalarProperty Name="AI24" ColumnName="AI24" />
+                <ScalarProperty Name="AI25" ColumnName="AI25" />
+                <ScalarProperty Name="AI26" ColumnName="AI26" />
+                <ScalarProperty Name="AI27" ColumnName="AI27" />
+                <ScalarProperty Name="AI28" ColumnName="AI28" />
+                <ScalarProperty Name="AI29" ColumnName="AI29" />
+                <ScalarProperty Name="Counter1" ColumnName="Counter1" />
+                <ScalarProperty Name="Counter2" ColumnName="Counter2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReporterConnectUsers">
+            <EntityTypeMapping TypeName="ABFAModel.ReporterConnectUser">
+              <MappingFragment StoreEntitySet="ReporterConnectUsers">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Users" ColumnName="Users" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="DataTimeConnect" ColumnName="DataTimeConnect" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="Mac" ColumnName="Mac" />
+                <ScalarProperty Name="Serail" ColumnName="Serail" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="OS" ColumnName="OS" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StationsABFAs">
+            <EntityTypeMapping TypeName="ABFAModel.StationsABFA">
+              <MappingFragment StoreEntitySet="StationsABFAs">
+                <ScalarProperty Name="ID_Station" ColumnName="ID_Station" />
+                <ScalarProperty Name="DateTimeCreate" ColumnName="DateTimeCreate" />
+                <ScalarProperty Name="DateTimeUpdate" ColumnName="DateTimeUpdate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="ID_State" ColumnName="ID_State" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="Population" ColumnName="Population" />
+                <ScalarProperty Name="Pic" ColumnName="Pic" />
+                <ScalarProperty Name="PicXml" ColumnName="PicXml" />
+                <ScalarProperty Name="other" ColumnName="other" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ABFAModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersABFAs">
+            <EntityTypeMapping TypeName="ABFAModel.UsersABFA">
+              <MappingFragment StoreEntitySet="UsersABFAs">
+                <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserAbfa" ColumnName="UserAbfa" />
+                <ScalarProperty Name="PassAbfa" ColumnName="PassAbfa" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="ID_State" ColumnName="ID_State" />
+                <ScalarProperty Name="Station" ColumnName="Station" />
+                <ScalarProperty Name="PicUser" ColumnName="PicUser" />
+                <ScalarProperty Name="DateTimeUser" ColumnName="DateTimeUser" />
+                <ScalarProperty Name="XmlUser" ColumnName="XmlUser" />
+                <ScalarProperty Name="other1" ColumnName="other1" />
+                <ScalarProperty Name="other2" ColumnName="other2" />
+                <ScalarProperty Name="other3" ColumnName="other3" />
+                <ScalarProperty Name="other4" ColumnName="other4" />
+                <ScalarProperty Name="other5" ColumnName="other5" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Userws">
+            <EntityTypeMapping TypeName="ABFAModel.Userw">
+              <MappingFragment StoreEntitySet="Userws">
+                <ScalarProperty Name="Number_User" ColumnName="Number_User" />
+                <ScalarProperty Name="User_ABFA" ColumnName="User_ABFA" />
+                <ScalarProperty Name="Pass_ABAF" ColumnName="Pass_ABAF" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VersionApps">
+            <EntityTypeMapping TypeName="ABFAModel.VersionApp">
+              <MappingFragment StoreEntitySet="VersionApps">
+                <ScalarProperty Name="number" ColumnName="number" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Acsses" ColumnName="Acsses" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="other" ColumnName="other" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Water_Supply">
+            <EntityTypeMapping TypeName="ABFAModel.Water_Supply">
+              <MappingFragment StoreEntitySet="Water_Supply">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_station" ColumnName="ID_station" />
+                <ScalarProperty Name="Logger" ColumnName="Logger" />
+                <ScalarProperty Name="RF" ColumnName="RF" />
+                <ScalarProperty Name="DB2" ColumnName="DB2" />
+                <ScalarProperty Name="DB3" ColumnName="DB3" />
+                <ScalarProperty Name="DB4" ColumnName="DB4" />
+                <ScalarProperty Name="Voltage_Panel" ColumnName="Voltage_Panel" />
+                <ScalarProperty Name="Voltage_Batt" ColumnName="Voltage_Batt" />
+                <ScalarProperty Name="Level_water" ColumnName="Level_water" />
+                <ScalarProperty Name="TEMP" ColumnName="TEMP" />
+                <ScalarProperty Name="AI4" ColumnName="AI4" />
+                <ScalarProperty Name="AI5" ColumnName="AI5" />
+                <ScalarProperty Name="AI6" ColumnName="AI6" />
+                <ScalarProperty Name="AI7" ColumnName="AI7" />
+                <ScalarProperty Name="AI8" ColumnName="AI8" />
+                <ScalarProperty Name="AI9" ColumnName="AI9" />
+                <ScalarProperty Name="Counter1" ColumnName="Counter1" />
+                <ScalarProperty Name="Counter2" ColumnName="Counter2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SIMCards">
+            <EntityTypeMapping TypeName="ABFAModel.SIMCard">
+              <MappingFragment StoreEntitySet="SIMCard">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="ID_Company" ColumnName="ID_Company" />
+                <ScalarProperty Name="ID_Type" ColumnName="ID_Type" />
+                <ScalarProperty Name="ID_Station" ColumnName="ID_Station" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SimCardCharges">
+            <EntityTypeMapping TypeName="ABFAModel.SimCardCharge">
+              <MappingFragment StoreEntitySet="SimCardCharge">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ChargeAmount" ColumnName="ChargeAmount" />
+                <ScalarProperty Name="ChargeDate" ColumnName="ChargeDate" />
+                <ScalarProperty Name="ID_SimCard" ColumnName="ID_SimCard" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="ABFAModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="State1" ColumnName="State" />
+                <ScalarProperty Name="ID_State" ColumnName="ID_State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

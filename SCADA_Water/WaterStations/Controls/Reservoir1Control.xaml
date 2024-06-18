@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="ReporterWPF.WaterStations.Controls.Reservoir1Control"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ReporterWPF.WaterStations.Controls"
+             xmlns:converter="clr-namespace:ReporterWPF.WaterStations.Converter"
+             xmlns:fieldresoures="clr-namespace:Reporter.Localization.Control;assembly=Reporter.Localization"
+             mc:Ignorable="d" 
+            >
+    <UserControl.Resources>
+        <converter:HeightWaterConverter x:Key="HeightWaterConverter" />
+        <converter:VoltageConverter x:Key="VoltageConverter"/>
+    </UserControl.Resources>
+    <Grid ToolTip="{x:Static fieldresoures:FieldResource.Supply}" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--<TextBlock Name="TextBlock1" Visibility="Hidden"></TextBlock>-->
+        <Grid>
+            <Grid.RowDefinitions>
+               
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+                <RowDefinition Height="0.5*"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                <ColumnDefinition Width="10*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" >
+                <Grid.RowDefinitions>
+
+                    <!--<RowDefinition Height="1*"></RowDefinition>-->
+                    <RowDefinition  Height="{Binding  Path=Level_water, Converter={StaticResource HeightWaterConverter}, ConverterParameter=RTUHOff}"/>
+                    <!--<RowDefinition Height="{Binding ElementName=TextBlock1 , Path=Name, Converter={StaticResource HeightWaterConverter}, ConverterParameter=RTUH}"></RowDefinition>-->
+                    <RowDefinition Height="{Binding  Path=Level_water, Converter={StaticResource HeightWaterConverter}, ConverterParameter=RTUHOn}"/>
+                </Grid.RowDefinitions>
+              
+                <!-- Base color -->
+                <Grid  Grid.Column="0" Grid.Row="1" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="4*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Rectangle Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Fill="LightSkyBlue">
+
+
+                    </Rectangle>
+                    <Rectangle Grid.Column="0" Grid.Row="4" Grid.RowSpan="1" Fill="LightSkyBlue">
+
+
+                    </Rectangle>
+                 
+                 
+                </Grid>
+             
+            </Grid>
+            <Path Grid.Row="0" Grid.RowSpan="4" Grid.Column="0" Grid.ColumnSpan="3" Stretch="Fill" 
+                   Data="M 185,180 S 100,195 20,180 A 20,10 0 0 1 5,170 L 5,20 A 20,10 0 0 1 15,10 S 100,-5 185,10 A 20,10 0 0 1 195,20 L 195,170 A 20,10 0 0 1 185,180 Z
+                                        M 90,25 L 90,165 A 10,5 0 0 0 110,165 L 110,25 A 10,5 0 0 0 90,25 M 95,35 L 105,35 M 95,75 L 105,75 M 95,115 L 105,115 M 95,155 L 105,155"
+                      Stroke="Black" >
+                <Path.Fill>
+                    <LinearGradientBrush EndPoint="1,0" ColorInterpolationMode="SRgbLinearInterpolation">
+                        <GradientStop Color="Gray" />
+                        <GradientStop Color="White" Offset="0.4" />
+                        <GradientStop Color="#FF404040" Offset="1" />
+                    </LinearGradientBrush>
+                </Path.Fill>
+            </Path>
+
+            
+   <TextBlock Grid.Column="1" Grid.Row="2" Grid.RowSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Text="{Binding Path=Level_water, Converter={StaticResource VoltageConverter}, ConverterParameter=LevelReservoir}"></TextBlock>
+
+
+
+
+        </Grid>
+      <StackPanel Grid.Row="0" Grid.Column="0" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+            <TextBlock Text="{x:Static fieldresoures:FieldResource.Temp}"/>  
+        <TextBlock 
+                   Text="{Binding Path=TEMP, Converter={StaticResource VoltageConverter}, ConverterParameter=TempReservoir}"></TextBlock>
+ </StackPanel>    </Grid>
+
+</UserControl>

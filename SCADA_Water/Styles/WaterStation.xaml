@@ -1,0 +1,367 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    >
+    <LinearGradientBrush x:Key="LineHOff" EndPoint="0,0" StartPoint="0,1">
+        <GradientStop Color="#6c6c93" />
+        <GradientStop Color="#c2c2d6" Offset="0.4" />
+        <GradientStop Color="#e6f2ff" Offset="0.6" />
+        <GradientStop Color="#a3a3c2" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush  x:Key="LineVOff" EndPoint="0,0" StartPoint="1,0">
+        <GradientStop Color="#6c6c93" />
+        <GradientStop Color="#c2c2d6" Offset="0.4" />
+        <GradientStop Color="#e6f2ff" Offset="0.6" />
+        <GradientStop Color="#a3a3c2" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="LineHOn" EndPoint="0,0" StartPoint="0,1">
+        <GradientStop Color="#00b33c" />
+        <GradientStop Color="#a3c2c2" Offset="0.4" />
+        <GradientStop Color="#e0ebeb" Offset="0.6" />
+        <GradientStop Color="#80ffaa" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush  x:Key="LineVOn" EndPoint="0,0" StartPoint="1,0">
+        <GradientStop Color="#00b33c" />
+        <GradientStop Color="#a3c2c2" Offset="0.4" />
+        <GradientStop Color="#e0ebeb" Offset="0.6" />
+        <GradientStop Color="#80ffaa" Offset="1" />
+    </LinearGradientBrush>
+
+
+
+
+    <ControlTemplate x:Key="ControlTemplateLineVOff">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Rectangle Grid.Column="1" Grid.Row="0" Grid.RowSpan="5" Fill="{StaticResource LineVOff}" >
+            </Rectangle>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="ControlTemplateLineVOn">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Rectangle Grid.Column="1" Grid.Row="0" Grid.RowSpan="5" Fill="{StaticResource LineVOn}" >
+            </Rectangle>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="ControlTemplateLineHOff">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <Rectangle Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Fill="{StaticResource LineHOff}" >
+            </Rectangle>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="ControlTemplateLineHOn">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <Rectangle Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Fill="{StaticResource LineHOn}" >
+            </Rectangle>
+        </Grid>
+    </ControlTemplate>
+
+
+
+
+
+
+
+
+
+
+
+
+    <Style x:Key="HorG" TargetType="{x:Type Path}">
+        <Setter Property="FlowDirection" Value="LeftToRight" />
+        <Setter Property="Stroke" Value="Black" />
+        <Setter Property="Fill">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" MappingMode="RelativeToBoundingBox">
+                    <GradientStop Color="#EEE"/>
+                    <GradientStop Color="#888" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="VerG" TargetType="{x:Type Path}">
+        <Setter Property="FlowDirection" Value="LeftToRight" />
+        <Setter Property="Stroke" Value="Black" />
+        <Setter Property="Fill">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox">
+                    <GradientStop Color="#EEE"/>
+                    <GradientStop Color="#888" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Wire" TargetType="Path">
+        <Setter Property="FlowDirection" Value="LeftToRight" />
+        <Setter Property="Stroke" Value="#444" />
+        <Setter Property="StrokeThickness" Value="5" />
+    </Style>
+    <LinearGradientBrush x:Key="UncheckedStateBrush"
+                             EndPoint="0,1"
+                             StartPoint="0,0">
+        <GradientStop Color="DodgerBlue" />
+        <GradientStop Color="DarkGreen"
+                          Offset="0.365" />
+        <GradientStop Color="Aqua"
+                          Offset="1" />
+    </LinearGradientBrush>
+
+
+    <LinearGradientBrush x:Key="linegc1" EndPoint="0,0" StartPoint="0,1">
+        <GradientStop Color="#FF404040" />
+        <GradientStop Color="LightGray" Offset="0.5" />
+        <GradientStop Color="Gray" Offset="1" />
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="linegc2" EndPoint="0,0" StartPoint="1,0">
+        <GradientStop Color="#FF404040" />
+        <GradientStop Color="LightGray" Offset="0.5" />
+        <GradientStop Color="Gray" Offset="1" />
+    </LinearGradientBrush>
+
+
+
+    <ControlTemplate x:Key="ControlTemplatePipeH">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Rectangle Grid.Row="0"   >
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,0.5" SpreadMethod="Reflect">
+                        <GradientStop Color="#FF1B1B1F" Offset="0"/>
+                        <GradientStop Color="White" Offset="1" />
+                        <GradientStop Color="#FFADADAF" Offset="0.43"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
+
+    </ControlTemplate>
+    <ControlTemplate x:Key="ControlTemplatePipeV">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Grid.Column="0"   >
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0.5,0" SpreadMethod="Reflect">
+                        <GradientStop Color="#FF1B1B1F" Offset="0"/>
+                        <GradientStop Color="White" Offset="1" />
+                        <GradientStop Color="#FFADADAF" Offset="0.43"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
+
+    </ControlTemplate>
+    <Style x:Key="StyleVV" TargetType="{x:Type Path}">
+        <!--<Setter Property="FlowDirection" Value="LeftToRight" />
+        <Setter Property="Stroke" Value="Black" />-->
+        <Setter Property="Fill">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0.5,0" SpreadMethod="Reflect">
+                    <GradientStop Color="#FF1B1B1F" Offset="0"/>
+                    <GradientStop Color="White" Offset="1" />
+                    <GradientStop Color="#FFADADAF" Offset="0.43"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ControlTemplate x:Key="ControlTemplatePipeVV">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Path  Grid.Column="0" Grid.Row="0"  Grid.RowSpan="2"  Stretch="Fill"    Data="M 0,0 V 75 A 10,5 0 0 0 15,75 V 0"  Style="{StaticResource StyleVV}" />
+            <Path  Grid.Column="0" Grid.Row="3" Grid.RowSpan="2"   Stretch="Fill"   Data="M 0,0 V 75 A 10,5 0 0 0 15,75 V 0"  Style="{StaticResource StyleVV}" />
+            <Rectangle Grid.Column="0" Grid.Row="1" Grid.RowSpan="3"  >
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0.5,0" SpreadMethod="Reflect">
+                        <GradientStop Color="#FF1B1B1F" Offset="0"/>
+                        <GradientStop Color="White" Offset="1" />
+                        <GradientStop Color="#FFADADAF" Offset="0.43"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
+    </ControlTemplate>
+    <Style x:Key="StyleHH" TargetType="{x:Type Path}">
+        <!--<Setter Property="FlowDirection" Value="LeftToRight" />
+        <Setter Property="Stroke" Value="Black" />-->
+        <Setter Property="Fill">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,0.5" SpreadMethod="Reflect">
+                    <GradientStop Color="#FF1B1B1F" Offset="0"/>
+                    <GradientStop Color="White" Offset="1" />
+                    <GradientStop Color="#FFADADAF" Offset="0.43"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <ControlTemplate x:Key="ControlTemplatePipeHH">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Path  Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="2"  Stretch="Fill"   Data="M 0,0 H 60 A 5,10 180 0 1 60,15 H 0 A 5,10 180 0 1 0,0" Style="{StaticResource StyleHH}" />
+            <Path  Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2"   Stretch="Fill"  Data="M 0,0 H 60 A 5,10 180 0 1 60,15 H 0 A 5,10 180 0 1 0,0" Style="{StaticResource StyleHH}" />
+            <Rectangle Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"  >
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,0.5" SpreadMethod="Reflect">
+                        <GradientStop Color="#FF1B1B1F" Offset="0"/>
+                        <GradientStop Color="White" Offset="1" />
+                        <GradientStop Color="#FFADADAF" Offset="0.43"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="ControlTemplatePipeHHCompelete">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Path  Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="2"  Stretch="Fill"   Data="M 0,0 H 60 A 5,10 180 0 1 60,15 H 0 A 5,10 180 0 1 0,0" Style="{StaticResource StyleHH}" />
+            <Path  Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2"   Stretch="Fill"  Data="M 0,0 H 60 A 5,10 180 0 1 60,15 H 0 A 5,10 180 0 1 0,0" Style="{StaticResource StyleHH}" />
+            <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5"  >
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#FF1B1B1F" Offset="0"/>
+                        <!--<GradientStop Color="White" Offset="1" />-->
+                        <GradientStop Color="#FFADADAF" Offset="0.9"/>
+                        <GradientStop Color="#FFADADAF" Offset="0.1"/>
+                        <!--<GradientStop Color="#FF299EE2" Offset="0"/>-->
+                        <GradientStop Color="#FF81C1E6" Offset="0.2"/>
+                        <GradientStop Color="LightSkyBlue" Offset="0.3" />
+                        <GradientStop Color="LightSkyBlue" Offset="0.5" />
+                        <GradientStop Color="LightSkyBlue" Offset="0.7" />
+                        <GradientStop Color="#FF81C1E6" Offset="0.8" />
+                        <GradientStop Color="#FF1B1B1F" Offset="1" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
+    </ControlTemplate>
+    
+
+
+    <ControlTemplate x:Key="ControlTemplateLineVV">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <!--<Path  Grid.Column="0" Grid.Row="0"  Grid.RowSpan="2"  Stretch="Fill"    Data="M 0,0 V 75 A 10,5 0 0 0 15,75 V 0"  Fill="DarkBlue" />
+            <Path  Grid.Column="0" Grid.Row="3" Grid.RowSpan="2"   Stretch="Fill"   Data="M 0,0 V 75 A 10,5 0 0 0 15,75 V 0"  Fill="DarkBlue" />-->
+            <Rectangle Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Fill="#444" >
+                </Rectangle>
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="ControlTemplateLineHH">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <!--<Path  Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="2"  Stretch="Fill"   Data="M 0,0 H 60 A 5,10 180 0 1 60,15 H 0 A 5,10 180 0 1 0,0" Fill="DarkBlue" />
+            <Path  Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2"   Stretch="Fill"  Data="M 0,0 H 60 A 5,10 180 0 1 60,15 H 0 A 5,10 180 0 1 0,0" Fill="DarkBlue" />-->
+            <Rectangle Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Fill="#444" >
+            </Rectangle>
+        </Grid>
+    </ControlTemplate>
+</ResourceDictionary>

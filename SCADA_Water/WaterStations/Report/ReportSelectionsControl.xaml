@@ -1,0 +1,137 @@
+﻿<UserControl x:Class="ReporterWPF.WaterStations.Report.ReportSelectionsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ReporterWPF.WaterStations.Report"
+              xmlns:converter="clr-namespace:ReporterWPF.WaterStations.Converter"
+             mc:Ignorable="d" 
+             FlowDirection="{DynamicResource FlowDirectionLR}"
+            xmlns:fieldresoures="clr-namespace:Reporter.Localization.Report;assembly=Reporter.Localization"
+          xmlns:persianDateControls="clr-namespace:Arash.PersianDateControls;assembly=PersianDateControls"
+
+           xmlns:sys="clr-namespace:System;assembly=mscorlib"
+           xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+
+          >
+    <UserControl.Resources>
+        <local:PumpParameterVM x:Key="PumpParameterVM"/>
+      <converter:DatePickerTypeConverter x:Key="DatePickerTypeConverter"/>
+    </UserControl.Resources>
+    <ScrollViewer
+        CanContentScroll="False" VerticalScrollBarVisibility="Auto"
+              HorizontalScrollBarVisibility="Disabled">
+        <Grid>
+       
+            <Grid Grid.Row="0"  FlowDirection="{DynamicResource FlowDirectionRL}"   HorizontalAlignment="Right"
+              VerticalAlignment="Top" Margin="0,30,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="5*"></RowDefinition>
+            </Grid.RowDefinitions>
+          
+
+            <StackPanel  >
+                    <Grid   FlowDirection="{DynamicResource FlowDirectionRL}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label  Grid.Column="0" Content="{x:Static fieldresoures:FieldResource.FromDate}" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                        <Grid Grid.Column="1">
+                        <persianDateControls:PersianDatePicker Name="displayDateDatePicker1" 
+                      SelectedDate="{Binding DisplayDate, ElementName=persianCalendar, Mode=TwoWay}" HorizontalAlignment="Right"  VerticalAlignment="Top"
+                       Visibility="{Binding DisplayDate, ElementName=displayDateDatePicker1, Mode=TwoWay ,Converter={StaticResource DatePickerTypeConverter},ConverterParameter=PersianDate}"
+                                                           />
+                            <DatePicker Name="displayDateDatePicker3" SelectedDate="{x:Static sys:DateTime.Now}" HorizontalAlignment="Right"  VerticalAlignment="Top"
+                                    DisplayDate="{x:Static sys:DateTime.Now}" FlowDirection="{DynamicResource FlowDirectionLR}"
+                                     Visibility="{Binding DisplayDate, ElementName=displayDateDatePicker3,Converter={StaticResource DatePickerTypeConverter},ConverterParameter=GeorgianDate}"/>
+           </Grid>         </Grid>
+                <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="{x:Static fieldresoures:FieldResource.ToDate}" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                        <Grid Grid.Column="1">
+                            <persianDateControls:PersianDatePicker Name="displayDateDatePicker2"  HorizontalAlignment="Right"  VerticalAlignment="Top"
+                     SelectedDate="{Binding DisplayDate, ElementName=persianCalendar, Mode=TwoWay}"
+                     Visibility="{Binding DisplayDate, ElementName=displayDateDatePicker2, Mode=TwoWay ,Converter={StaticResource DatePickerTypeConverter},ConverterParameter=PersianDate}"                                      
+                                                           />
+                            <DatePicker Name="displayDateDatePicker4"  SelectedDate="{x:Static sys:DateTime.Now}"  HorizontalAlignment="Right"  VerticalAlignment="Top"
+                                    DisplayDate="{x:Static sys:DateTime.Now}" FlowDirection="{DynamicResource FlowDirectionLR}"
+                                     Visibility="{Binding DisplayDate, ElementName=displayDateDatePicker4,Converter={StaticResource DatePickerTypeConverter},ConverterParameter=GeorgianDate}"/>
+                        </Grid>
+                    </Grid>
+            </StackPanel>
+            <Border  Width="130"  Margin="0,55,0,0" Height="3">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFF7C986" Offset="0"/>
+                        <GradientStop Color="#FFF7D5AB" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Border.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFE4EC4A" Offset="0"/>
+                        <GradientStop Color="#FFDA8B4A" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
+            </Border>
+
+                <StackPanel Orientation="Vertical" Grid.Row="1" >
+                    <Label Content="{x:Static fieldresoures:FieldResource.ShowReports}"  Height="30" />
+
+                    <!--ItemsSource="{Binding Source={StaticResource PumpParameterVM}}"-->
+                    <ListBox Name="listBoxPumpParameter"  
+Background="Azure"  >
+                        <ListBox.ItemTemplate >
+                            <DataTemplate>
+
+                                <CheckBox Name="CheckBoxPumpParameter" Content="{Binding}"
+ Checked="CheckBoxPumpParameter_Checked"   
+  FlowDirection="{DynamicResource FlowDirectionRL}"   Margin="0,5,0,0">
+                                    <CheckBox.Resources>
+                                        <Style TargetType="{x:Type Path}">
+                                            <Setter Property="FlowDirection" Value="LeftToRight" />
+                                        </Style>
+                                    </CheckBox.Resources>
+                                </CheckBox>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+
+                    <Button Content="{x:Static fieldresoures:FieldResource.Ok}" x:Name="BtnReport" Click="BtnReportDemand_Click" Margin="20,10,20,0" Style="{StaticResource ButtonStyle}"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="1" Name="Excel1Button" VerticalAlignment="Center" Margin="0,10,0,0" HorizontalAlignment="Center"
+                                >
+                            <Image Source="../../Image/Pic/microsoft-excel.png"></Image>
+                        </Button>
+                    </Grid>
+                </StackPanel>
+
+
+
+
+        </Grid>
+            <Button Content="{x:Static fieldresoures:FieldResource.ShowReports}"  VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0"
+                        x:Name="BtnReportShow"   Margin="-35,0,0,57" Style="{StaticResource ButtonStyle}" RenderTransformOrigin="0.5,0.5">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                </Button>
+
+    </Grid>
+        </ScrollViewer>
+</UserControl>

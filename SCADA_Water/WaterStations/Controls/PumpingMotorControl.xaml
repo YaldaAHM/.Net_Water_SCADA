@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="ReporterWPF.WaterStations.Controls.PumpingMotorControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:controls="clr-namespace:ReporterWPF.WaterStations.Controls"
+             mc:Ignorable="d" ClipToBounds="False" x:Name="Me">
+    <UserControl.Resources>
+        <Style x:Key="Body" TargetType="Path">
+            <Setter Property="Stroke" Value="Black" />
+            <Setter Property="Fill" Value="Silver" />
+        </Style>
+        <Style x:Key="Rotator" TargetType="Path">
+            <Setter Property="Stroke" Value="Black" />
+            <Setter Property="Fill" Value="WhiteSmoke" />
+        </Style>
+        <Style x:Key="Water" TargetType="Path">
+            <Setter Property="Fill" Value="LightSkyBlue" />
+        </Style>
+        <Style x:Key="Back" TargetType="Path">
+            <Setter Property="Stroke" Value="#888" />
+            <Setter Property="Fill" Value="#EEE" />
+        </Style>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="RadioButton.Unchecked" SourceName="OnButton">
+            <BeginStoryboard Name="RotateBS">
+                <Storyboard RepeatBehavior="Forever">
+                    <DoubleAnimation From="360" To="0" By="10" Duration="0:0:0.5" Storyboard.TargetName="RotateT" Storyboard.TargetProperty="Angle" />
+                </Storyboard>
+            </BeginStoryboard>
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation To="1" By="0.05" Duration="0:0:1" Storyboard.TargetName="WaterP" Storyboard.TargetProperty="Opacity" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="RadioButton.Checked" SourceName="OnButton">
+            <PauseStoryboard BeginStoryboardName="RotateBS" />
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation To="0" By="0.05" Duration="0:0:1" Storyboard.TargetName="WaterP" Storyboard.TargetProperty="Opacity" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
+    
+    <Grid Name="ContainerGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" HorizontalAlignment="Right">
+        <Path Data="M 35,5 A 30,30 180 0 1 35,65 A 30,30 180 0 1 35,5 Z" Style="{StaticResource Body}" />
+        <Path Data="M 30,5 A 30,30 180 0 1 30,65 A 30,30 180 0 1 30,5 Z" Style="{StaticResource Back}" ClipToBounds="False" />
+        <Path Name="WaterP" Data="M 35,6 A 28,28 180 0 1 35,64 A 28,28 180 0 1 35,6" Style="{StaticResource Water}" Opacity="0" />
+      
+            <Image Margin="10"  x:Name="Cf" Source="../../Image/WaterStation/fan.png" >
+                <Image.RenderTransform>
+                    <RotateTransform x:Name="RotateT" CenterX="25" CenterY="25"></RotateTransform></Image.RenderTransform>
+            </Image>
+        <Path Data="M 35,5 A 30,30 180 0 0 35,65 H 30 A 30,30 180 0 1 30,5 H 35 Z" Style="{StaticResource Body}" Stretch="Fill" />
+</Grid>
+        <UniformGrid Grid.Column="2" Rows="2" IsEnabled="{Binding ElementName=ManualB, Path=IsChecked}" Visibility="Hidden">
+            <RadioButton Name="OnButton" IsChecked="{Binding On, ElementName=Me}" Checked="ToggleButtonChecked">
+                <StackPanel>
+                    <Image Source="/Image/Pic/Open.png"/>
+                    <Label Content="On"/>
+                </StackPanel>
+            </RadioButton>
+            <RadioButton Name="OffButton" Margin="2,0,0,0" IsChecked="True" Checked="ToggleButtonChecked">
+                <StackPanel>
+                    <Image Source="/Image/Pic/Close.png"/>
+                    <Label Content="Off"/>
+                </StackPanel>
+            </RadioButton>
+        </UniformGrid>
+       
+    </Grid>
+    
+</UserControl>

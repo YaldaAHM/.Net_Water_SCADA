@@ -1,0 +1,115 @@
+﻿<UserControl x:Class="ReporterWPF.WaterStations.Controls.PopupInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converter="clr-namespace:ReporterWPF.WaterStations.Converter"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"  >
+     <Popup Name="Popup1"  Placement="Center"
+ VerticalAlignment="Top"  Style="{StaticResource HeaderStyle}" AllowsTransparency="True"  > <Grid  Style="{StaticResource GridStyle}" Background="{x:Null}">
+        <Grid.Resources>
+            <converter:wifiConverter x:Key="WifiConverter"/>
+            <converter:PersianNumberConverter x:Key="PersianNumberConverter"  />
+
+        </Grid.Resources>
+      
+            <Border BorderBrush="White" BorderThickness="1,1,1,1" CornerRadius="30,30,30,30" Background="#FF96ceb4"
+                    >
+
+                <Grid Width="242" >
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="57*"></RowDefinition>
+                        <RowDefinition Height="7*"></RowDefinition>
+                        <RowDefinition Height="3*"></RowDefinition>
+                        <RowDefinition Height="3*"></RowDefinition>
+                        <RowDefinition Height="3*"></RowDefinition>
+                        <RowDefinition Height="3*"></RowDefinition>
+                        <RowDefinition Height="3*"></RowDefinition>
+                      <RowDefinition Height="3*"></RowDefinition>
+                        <RowDefinition Height="3*"></RowDefinition>
+                        <RowDefinition Height="3*"></RowDefinition>
+                          <RowDefinition Height="3*"></RowDefinition>
+                    
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation = "Horizontal"  Grid.Row="0" Grid.ColumnSpan="2" Margin="0,10,0,0" >
+
+
+
+
+
+
+
+                        <Image Source="../../Image/Pic/Close-icon.png"  FlowDirection="{DynamicResource FlowDirectionLR}" Height="16" Width="56" MouseDown="Close_MouseDown"
+                          />
+                        <TextBlock x:Name="info"  HorizontalAlignment="Right" Margin="70,-5,26,0" >
+                            <Run Text="{Binding Path=Subject}"/></TextBlock>
+                        <!--<Image Source="../../Image/Pic/exclamation-16.png" HorizontalAlignment="Right"  Margin="-40,-5,0,0"  />-->
+                    </StackPanel>
+
+
+                    <TextBlock FlowDirection="{DynamicResource FlowDirectionRL}" Grid.Row="2" Grid.Column="1" Margin="0,10,13,5" Style="{StaticResource TextBlockStyle}" >  
+            Last Update
+                    </TextBlock>
+                    <TextBlock FlowDirection="{DynamicResource FlowDirectionRL}" Grid.Row="2" Grid.Column="0" Margin="0,10,0,5" Text="{Binding Path=LastUpdate}" Style="{StaticResource TextBlockStyle}">
+
+                    </TextBlock>
+
+                    <Line 
+                   Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                      Style="{StaticResource LineStyle}"  ></Line>
+
+
+                    <TextBlock FlowDirection="{DynamicResource FlowDirectionRL}" Grid.Row="4" Grid.Column="1"  Style="{StaticResource TextBlockStyle}" >  
+            Id
+                    </TextBlock>
+                    <TextBlock FlowDirection="{DynamicResource FlowDirectionRL}" Grid.Row="4" Grid.Column="0" 
+                                Text="{Binding ID,Converter={StaticResource PersianNumberConverter}}" Style="{StaticResource TextBlockStyle}" >
+
+                    </TextBlock>
+                    <Line Style="{StaticResource LineStyle}"
+                   Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" ></Line>
+
+                    <TextBlock FlowDirection="{DynamicResource FlowDirectionRL}" Grid.Row="6" Grid.Column="1" Style="{StaticResource TextBlockStyle}" >  
+            Humidity
+                    </TextBlock>
+                    <TextBlock FlowDirection="{DynamicResource FlowDirectionRL}" Grid.Row="6" Grid.Column="0"
+                                 Text="{Binding Hummidity,Converter={StaticResource PersianNumberConverter}}"
+                               Style="{StaticResource TextBlockStyle}">
+
+                    </TextBlock>
+                    <Line Style="{StaticResource LineStyle}"
+                   Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"></Line>
+
+                    <TextBlock FlowDirection="{DynamicResource FlowDirectionRL}" Grid.Row="8" Grid.Column="1" Style="{StaticResource TextBlockStyle}" >  
+            Temperature
+                    </TextBlock>
+                    <TextBlock FlowDirection="{DynamicResource FlowDirectionRL}" Grid.Row="8" Grid.Column="0"
+                               Text="{Binding Temp,Converter={StaticResource PersianNumberConverter}}"
+                             Style="{StaticResource TextBlockStyle}">  
+          
+                    </TextBlock>
+                    <Line Style="{StaticResource LineStyle}"
+                   Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2"></Line>
+
+                    <TextBlock FlowDirection="{DynamicResource FlowDirectionRL}" Grid.Row="10" Grid.Column="1" Style="{StaticResource TextBlockStyle}">  
+           Link
+                    </TextBlock>
+                    <TextBlock FlowDirection="{DynamicResource FlowDirectionLR}" HorizontalAlignment="Right" Grid.Row="10" Grid.Column="0" 
+                                Text="{Binding Path=RatingWifi,Converter={StaticResource WifiConverter}}" Style="{StaticResource TextBlockStyle}">
+
+                    </TextBlock>
+                    <Line Style="{StaticResource LineStyle}"
+                   Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" ></Line>
+                 </Grid>
+            </Border>
+       
+    </Grid>
+ </Popup>
+</UserControl>

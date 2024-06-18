@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="ReporterWPF.WaterStations.Controls.RatingWifiGSM"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converter="clr-namespace:ReporterWPF.WaterStations.Converter"
+             mc:Ignorable="d"
+            >
+    <Grid  Visibility="{Binding Path=VisibleWifi}">
+        <!--Background="White"-->
+
+        <Grid.Resources>
+        <converter:RatingConverter x:Key="RatingConverter" OnBrush="#FFFFFFFF" OffBrush="#50FFFFFF"  />
+        <Style TargetType="Rectangle">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="Margin" Value="1,0,0,0" />
+        </Style>
+    </Grid.Resources>
+
+    <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+       
+            <Rectangle  MinWidth="5" MinHeight="7" Fill="{Binding Path=DB4, Converter={StaticResource RatingConverter}, ConverterParameter=1}">
+            <Rectangle.Effect>
+                <DropShadowEffect Opacity="0.5" Color="YellowGreen"  ShadowDepth="2" />
+            </Rectangle.Effect>
+        </Rectangle>
+            <Rectangle MinWidth="5" Height="12" Fill="{Binding Path=DB4, Converter={StaticResource RatingConverter}, ConverterParameter=2}">
+            <Rectangle.Effect>
+                <DropShadowEffect Opacity="0.5" Color="YellowGreen"  ShadowDepth="2" />
+            </Rectangle.Effect>
+        </Rectangle>
+            <Rectangle MinWidth="5" Height="17" Fill="{Binding Path=DB4, Converter={StaticResource RatingConverter}, ConverterParameter=3}">
+            <Rectangle.Effect>
+                <DropShadowEffect Opacity="0.5" Color="YellowGreen"  ShadowDepth="2" />
+            </Rectangle.Effect>
+        </Rectangle>
+            <Rectangle MinWidth="5" Height="22" Fill="{Binding Path=DB4, Converter={StaticResource RatingConverter}, ConverterParameter=4}">
+            <Rectangle.Effect>
+                <DropShadowEffect Opacity="0.5" Color="YellowGreen"  ShadowDepth="2" />
+            </Rectangle.Effect>
+        </Rectangle>
+
+    </StackPanel>
+
+    </Grid>
+</UserControl>

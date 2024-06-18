@@ -1,0 +1,458 @@
+﻿<Window x:Class="ReporterWPF.WaterStations.PSWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:ReporterWPF.ViewModel"
+        xmlns:converter="clr-namespace:ReporterWPF.WaterStations.Converter"
+        xmlns:controls="clr-namespace:ReporterWPF.WaterStations.Controls"
+        xmlns:report="clr-namespace:ReporterWPF.WaterStations.Report"
+        xmlns:controlModeEnum="clr-namespace:ReporterWPF.WaterStations.Enums"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:wpfSpark="clr-namespace:WPFSpark;assembly=WPFSpark"
+        mc:Ignorable="d" 
+         xmlns:fieldresoures="clr-namespace:Reporter.Localization.Pump;assembly=Reporter.Localization"
+        Title="PSWindow" Background="{x:Null}" FlowDirection="{DynamicResource FlowDirectionLR}"
+       >
+   <Window.DataContext>
+            <viewModel:PumpStructVM/>
+        </Window.DataContext>
+    <Window.Resources>
+        <viewModel:PumpListBind x:Key="PumpListBind"/>
+        <ObjectDataProvider x:Key="Cont_ModeEnum" MethodName="GetValues"
+                        ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="controlModeEnum:Cont_Mode"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <converter:SelectedComboBoxPSConverter x:Key="SelectedComboBoxPsConverter" />
+        <converter:EnableControlConverter x:Key="EnableControlConverter" />
+        <converter:ControlModeButtonConverter x:Key="ControlModeButtonConverter" />
+        <converter:CreditConverter x:Key="CreditConverter" />
+        <converter:ControlModeConverter x:Key="ControlModeConverter" />
+        <converter:EnergySsavingConverter x:Key="EnergySsavingConverter" />
+        <converter:PersianDateConverter x:Key="PersianDateConverter" />
+        <converter:RTU_ModeMultiConverter x:Key="RTUModeMultiConverter" />
+        <converter:DivideByConverter x:Key="Divider" />
+        <converter:PathDataConverter x:Key="PathData" />
+        <converter:PathColorConverter x:Key="PathColor" />
+        <converter:PersianNumberConverter x:Key="PersianNumberConverter"></converter:PersianNumberConverter>
+        <converter:FatalErrorConverter x:Key="FatalErrorConverter"></converter:FatalErrorConverter>
+        <converter:ControlUpdatConverter x:Key="ControlUpdatConverter"/>
+    </Window.Resources>
+
+    <Grid  >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1.4*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="2" Grid.RowSpan="3" Grid.Row="0" Margin="0,10,0,0" >
+            <Expander Name="ExpanderControl"  Margin="0,0,10,0" 
+   Background="LavenderBlush"   
+  ExpandDirection="Down"  IsExpanded="True" 
+      Foreground="Green" >
+                <Expander.Header>
+                    <BulletDecorator>
+
+                        <TextBlock Margin="20,0,0,0"></TextBlock>
+                    </BulletDecorator>
+                </Expander.Header>
+                <ScrollViewer
+        CanContentScroll="True" VerticalScrollBarVisibility="Auto"
+              HorizontalScrollBarVisibility="Disabled">
+                    <Grid>
+                        <StackPanel>
+                            <ComboBox Name="ComboBoxPumpStation" Grid.Column="1" Grid.Row="1"
+                                        Style="{StaticResource ComboBoxFlatStyle}"
+         ItemContainerStyle="{DynamicResource ComboBoxItemStyle1}"
+                              ItemsSource="{Binding PumpStructsVM,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+          
+   SelectedValue="{Binding Path=PSsVM[0],UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                              FlowDirection="{DynamicResource FlowDirectionRL}"
+                              VerticalAlignment="Top" SelectionChanged="ComboBoxPumpStation_SelectionChanged" >
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding Path=Pump.ID}"/>
+                                            <TextBlock Text=" - "/>
+                                            <TextBlock Text="{Binding Path=Name}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+
+
+                            <report:ReportSelectionsControl x:Name="ReportSelectionsControl" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                               ></report:ReportSelectionsControl>
+                        </StackPanel>
+
+                    </Grid>
+                </ScrollViewer>
+            </Expander>
+        </Grid>
+        <Grid Name="LayoutRoot" Margin="10,60,10,10" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3" Grid.Row="0"
+              FlowDirection="LeftToRight"
+              DataContext="{Binding ElementName=ComboBoxPumpStation, Path=SelectedValue ,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <!--<TextBlock Grid.Row="2" Grid.Column="8" Text="{Binding Path=Pump.ID}"></TextBlock>-->
+            <Control Name="FuseH" Template="{Binding Path=Pump.RTU, Converter={StaticResource PathColor}, ConverterParameter=FuseH}" 
+              Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" />
+            <Control Name="PhaseH" Template="{Binding Path=Pump.RTU, Converter={StaticResource PathColor}, ConverterParameter=PhaseH}" 
+              Grid.Row="0" Grid.RowSpan="2" Grid.Column="3" Grid.ColumnSpan="2"   />
+            <Control Name="BimetalH" Template="{Binding Path=Pump.RTU, Converter={StaticResource PathColor}, ConverterParameter=BimetalH}" 
+              Grid.Row="0" Grid.RowSpan="2" Grid.Column="5" Grid.ColumnSpan="2"   />
+            <Control Name="BimetalV" Template="{Binding Path=Pump.RTU, Converter={StaticResource PathColor}, ConverterParameter=BimetalV}"   
+          Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3"   />
+            <Control Name="MotorH" Template="{Binding Path=Pump.RTU, Converter={StaticResource PathColor}, ConverterParameter=MotorH}" 
+              Grid.Row="0" Grid.RowSpan="2" Grid.Column="7" Grid.ColumnSpan="3"   />
+
+            <Control Name="RTUV1" Template="{Binding Path=Pump.RTU, Converter={StaticResource PathColor}, ConverterParameter=RTUV1}"   
+          Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="7"     />
+            <Control Name="RTUV2" Template="{Binding Path=Pump.RTU, Converter={StaticResource PathColor}, ConverterParameter=RTUV2}"    
+          Grid.Column="9" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="5"    />
+            <Control Name="RTUV3" Template="{Binding Path=Pump.RTU, Converter={StaticResource PathColor}, ConverterParameter=RTUV3}"    
+          Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="6" Grid.RowSpan="2"   />
+            <Control Name="RTUH1" Template="{Binding Path=Pump.RTU, Converter={StaticResource PathColor}, ConverterParameter=RTUH1}" 
+              Grid.Row="7" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"   />
+            <Control Name="RTUH2" Template="{Binding Path=Pump.RTU, Converter={StaticResource PathColor}, ConverterParameter=RTUH2}" 
+              Grid.Row="5" Grid.RowSpan="2" Grid.Column="5" Grid.ColumnSpan="5"   />
+            <Control Name="RTUH3" Template="{Binding Path=Pump.RTU, Converter={StaticResource PathColor}, ConverterParameter=RTUH3}" 
+              Grid.Row="7" Grid.RowSpan="2" Grid.Column="3" Grid.ColumnSpan="2"   />
+            <Grid Grid.Row="7" Grid.RowSpan="2" Grid.Column="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Image Source="../Image/WaterStation/error-warning-icon.png"  
+                 Grid.Row="1"
+                   ToolTip="{x:Static fieldresoures:FieldResource.FatalError}"
+                   Visibility="{Binding Path=Pump.Error, Converter={StaticResource FatalErrorConverter}, ConverterParameter=error-warning}"></Image>
+            </Grid>
+            <controls:FuseControl x:Name="FuseControl" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                                   DataContext="{Binding Pump,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"></controls:FuseControl>
+            <controls:PhaseCtrlControl Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" x:Name="PhaseCtrl" Grid.RowSpan="2"
+                                       DataContext="{Binding Pump,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"></controls:PhaseCtrlControl>
+            <controls:BimetalControl x:Name="BimetalControl" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                                     DataContext="{Binding Pump,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"></controls:BimetalControl>
+            <controls:PMControl x:Name="PMControl" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                                DataContext="{Binding Pump,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"></controls:PMControl>
+            <!--<control:ContactorControl x:Name="ContactorControlStar" Grid.Row="0" Grid.Column="8" Grid.ColumnSpan="2" Grid.RowSpan="2"></control:ContactorControl>-->
+            <controls:ContactorControl x:Name="ContactorMainControl" Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                                       DataContext="{Binding Pump,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"></controls:ContactorControl>
+            <controls:PumpingMotor1Control x:Name="PumpingMotorControl" Grid.Row="0" Grid.Column="9" Grid.ColumnSpan="2" Grid.RowSpan="2" HorizontalAlignment="Center"
+                                           DataContext="{Binding Pump,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"></controls:PumpingMotor1Control>
+
+            <controls:RTUControl x:Name="RTUControl" Grid.Row="6" Grid.Column="1" TypeRate="PSW"
+                            Grid.ColumnSpan="4" Grid.RowSpan="4" HorizontalAlignment="Center"
+                                 DataContext="{Binding Pump,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"></controls:RTUControl>
+
+            <Image Name="Refresh"   Grid.Row="0" Grid.Column="11" Source="../Image/Pic/Refresh-icon.png"
+         MouseDown="refresh_MouseDown" RenderTransformOrigin="0.5, 0.5"  >
+                <Image.RenderTransform>
+
+                    <RotateTransform x:Name="rotate"  />
+                </Image.RenderTransform>
+                <Image.Triggers>
+                    <EventTrigger RoutedEvent="Image.MouseDown">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation From="0" RepeatBehavior="4x"
+            Storyboard.TargetProperty="(Image.RenderTransform).(RotateTransform.Angle)"
+            To="360"   />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Image.Triggers>
+            </Image>
+            <Expander Name="ReportExp"   Grid.Column="9" Grid.ColumnSpan="3" Grid.Row="8" Grid.RowSpan="4"
+  HorizontalAlignment="Right"  FlowDirection="{DynamicResource FlowDirectionRL}" 
+  ExpandDirection="Up"  IsExpanded="True"
+         FontWeight="Bold" Foreground="#FF1C2685" >
+                <Expander.Header>
+                    <BulletDecorator>
+
+                        <TextBlock Text="{x:Static fieldresoures:FieldResource.Reports}"></TextBlock>
+                    </BulletDecorator>
+                </Expander.Header>
+                <Border BorderBrush="White" BorderThickness="1,1,1,1" CornerRadius="10,10,10,10" Background="#FF81C1E6"
+                   FlowDirection="{DynamicResource FlowDirectionLR}" >
+
+
+                    <ScrollViewer
+        CanContentScroll="False" VerticalScrollBarVisibility="Auto"
+              HorizontalScrollBarVisibility="Disabled">
+                        <Grid >
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5*"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition Height="3*"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition Height="3*"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock FlowDirection="{DynamicResource FlowDirectionRL}" Grid.Row="0" Grid.Column="1" Margin="0,10,13,5" Style="{StaticResource TextBlockStyle}"
+                                   Text="{x:Static fieldresoures:FieldResource.LastUpdate}">
+
+                            </TextBlock>
+                            <TextBlock FlowDirection="{DynamicResource FlowDirectionRL}" Grid.Row="0" Grid.Column="0" Margin="0,10,0,5"  
+                        Text="{Binding Path=Pump.DateTime,Converter={StaticResource PersianDateConverter}}" Style="{StaticResource TextBlockStyle}">
+
+                            </TextBlock>
+
+                            <Line 
+                   Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                      Style="{StaticResource LineStyle}"  ></Line>
+
+
+                            <TextBlock FlowDirection="{DynamicResource FlowDirectionRL}" Grid.Row="2" Grid.Column="1"  Style="{StaticResource TextBlockStyle}" 
+                                   Text="{x:Static fieldresoures:FieldResource.ControlMode}">
+
+                            </TextBlock>
+                            <TextBlock FlowDirection="{DynamicResource FlowDirectionRL}" Grid.Row="2" Grid.Column="0" Style="{StaticResource TextBlockStyle}" >
+                                <TextBlock.Text>
+                                    <MultiBinding Converter="{StaticResource RTUModeMultiConverter}">
+                                        <Binding Path="Pump.Motor"></Binding>
+                                        <!--<Binding />-->
+
+                                        <Binding Path="Pump.RTU" />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+
+                            </TextBlock>
+                            <Line Style="{StaticResource LineStyle}"
+                   Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" ></Line>
+
+
+                            <TextBlock FlowDirection="{DynamicResource FlowDirectionRL}" Grid.Row="4" Grid.Column="1" Style="{StaticResource TextBlockStyle}" 
+                                  Text= "{x:Static fieldresoures:FieldResource.SimSharj}">
+
+                            </TextBlock>
+                            <TextBlock FlowDirection="{DynamicResource FlowDirectionRL}" Grid.Row="4" Grid.Column="0"
+                               Text="{Binding Path=Pump.AI14,Converter={StaticResource CreditConverter}}" Style="{StaticResource TextBlockStyle}">
+
+                            </TextBlock>
+                            <Line Style="{StaticResource LineStyle}"
+                   Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"></Line>
+                        </Grid>
+                    </ScrollViewer>
+                </Border>
+
+            </Expander>
+            <Expander Name="SettingExpander"   Grid.Column="4" Grid.ColumnSpan="5" Grid.Row="5" Grid.RowSpan="7"
+  HorizontalAlignment="Right"  FlowDirection="{DynamicResource FlowDirectionRL}"
+  ExpandDirection="Up"  IsExpanded="False"
+         FontWeight="Bold" Foreground="#FF1C2685" >
+                <Expander.Header>
+                    <BulletDecorator>
+
+                        <TextBlock Text="{x:Static fieldresoures:FieldResource.Settings}"></TextBlock>
+                    </BulletDecorator>
+                </Expander.Header>
+                <Border BorderBrush="White" FlowDirection="{DynamicResource FlowDirectionLR}" BorderThickness="1,1,1,1" CornerRadius="10,10,10,10" Background="#FF81C1E6"
+                    >
+                    <ScrollViewer
+        CanContentScroll="False" VerticalScrollBarVisibility="Auto"
+              HorizontalScrollBarVisibility="Disabled">
+                        <!--<Grid Style="{StaticResource GridStyle}">-->
+                        <Grid >
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition Height="5*"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition Height="3*"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition Height="3*"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition Height="3*"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+
+                            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FlowDirection="{DynamicResource FlowDirectionRL}" Margin="0,20,10,0" >
+
+                                <TextBlock FlowDirection="RightToLeft" Grid.Row="0" Grid.Column="1" 
+                                    Style="{StaticResource TextBlockStyle}" 
+                                        Text="{Binding Path=DataSend.ID,Converter={StaticResource ControlUpdatConverter}}" Foreground="Red">
+
+                                </TextBlock>
+
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FlowDirection="{DynamicResource FlowDirectionRL}" Margin="0,20,10,0" >
+
+                                <TextBlock FlowDirection="RightToLeft" Grid.Row="0" Grid.Column="1" 
+                                    Style="{StaticResource TextBlockStyle}" 
+                                       Text="{x:Static fieldresoures:FieldResource.Beh}">
+
+                                </TextBlock>
+                                <CheckBox Grid.Row="0" Grid.Column="0" Name="EnergySsavingCbx" FlowDirection="{DynamicResource FlowDirectionLR}"
+                                  IsChecked="{Binding Path=Pump.Motor,Converter={StaticResource EnergySsavingConverter}}">
+                                </CheckBox>
+                            </StackPanel>
+                            <Line 
+                   Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                      Style="{StaticResource LineStyle}"  ></Line>
+                            <TextBlock FlowDirection="{DynamicResource FlowDirectionRL}" Grid.Row="3" Grid.Column="1"  Style="{StaticResource TextBlockStyle}"
+                                   Text="{x:Static fieldresoures:FieldResource.ControlModeRTU}">
+
+                            </TextBlock>
+
+                            <ComboBox Name="ComboBoxControlMode" FlowDirection="{DynamicResource FlowDirectionRL}" Grid.Row="3" Grid.Column="0"
+                                        Style="{StaticResource ComboBoxFlatStyle}"
+         ItemContainerStyle="{DynamicResource ComboBoxItemStyle1}" Margin="10,0,0,0"
+                              ItemsSource="{Binding Source={StaticResource Cont_ModeEnum}}"
+                                  SelectedItem="{Binding Path=Pump.Motor,Converter={StaticResource ControlModeConverter}}"
+                        />
+
+                            <Line Style="{StaticResource LineStyle}"
+                   Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" ></Line>
+                            <TextBlock FlowDirection="{DynamicResource FlowDirectionRL}" Grid.Row="5" Grid.Column="1"  Style="{StaticResource TextBlockStyle}"
+            Text="{x:Static fieldresoures:FieldResource.Status}">
+
+                            </TextBlock>
+                            <wpfSpark:ToggleSwitch FlowDirection="{DynamicResource FlowDirectionRL}" Grid.Row="5" Grid.Column="0"  Background="Black"
+                               IsChecked="{Binding Path=Pump.RTU,Converter={StaticResource ControlModeButtonConverter},ConverterParameter=ToggleSwitchControlMode}"
+                                 Name="StatusMotorTS"              IsEnabled="{Binding ElementName=ComboBoxControlMode , Path=SelectedValue,Converter={StaticResource EnableControlConverter},ConverterParameter=ToggleSwitchControlMode}"
+                               ThumbWidth="35"
+                               BorderThickness="2"
+                               CheckedForeground="White"
+                               CheckedText="{x:Static fieldresoures:FieldResource.OFF}"
+                               CornerRadius="19"
+                               FontFamily="Tahoma"
+                               FontSize="12"
+                               FontWeight="Normal"
+                               Height="27"
+                               HorizontalAlignment="Left"
+                               Margin="10,0,10,0"
+                               Padding="0"
+                               ThumbBorderThickness="2"
+                               ThumbCornerRadius="21"
+                               ThumbGlowColor="Gray"
+                               ThumbShineCornerRadius="20,20,0,0"
+                               UncheckedForeground="Black"
+                               UncheckedText="{x:Static fieldresoures:FieldResource.ON}"
+                               VerticalAlignment="Top"
+                               Width="78"
+                               UncheckedBackground="{StaticResource UncheckedStateBrush}" Checked="toggleSwitch1_Checked">
+                                <wpfSpark:ToggleSwitch.BorderBrush>
+                                    <LinearGradientBrush EndPoint="0,0"
+                                     StartPoint="0,1">
+                                        <GradientStop Color="#959595"
+                                  Offset="0" />
+                                        <GradientStop Color="#A1A1A1"
+                                  Offset="0.5" />
+                                        <GradientStop Color="#555555"
+                                  Offset="1" />
+                                    </LinearGradientBrush>
+                                </wpfSpark:ToggleSwitch.BorderBrush>
+                                <wpfSpark:ToggleSwitch.CheckedBackground>
+                                    <LinearGradientBrush EndPoint="0,1"
+                                     StartPoint="0,0">
+                                        <GradientStop Color="DarkRed"
+                                  Offset="0" />
+                                        <GradientStop Color="DarkRed"
+                                  Offset="0.5" />
+                                        <GradientStop Color="Red"
+                                  Offset="1" />
+                                    </LinearGradientBrush>
+                                </wpfSpark:ToggleSwitch.CheckedBackground>
+                                <wpfSpark:ToggleSwitch.ThumbBackground>
+                                    <LinearGradientBrush EndPoint="0,1"
+                                     StartPoint="0,0">
+                                        <GradientStop Color="#C1C1C1"
+                                  Offset="0" />
+                                        <GradientStop Color="#A5A5A5"
+                                  Offset="0.5" />
+                                        <GradientStop Color="#FCFCF6"
+                                  Offset="1" />
+                                    </LinearGradientBrush>
+                                </wpfSpark:ToggleSwitch.ThumbBackground>
+                                <wpfSpark:ToggleSwitch.ThumbBorderBrush>
+                                    <LinearGradientBrush EndPoint="0,1"
+                                     StartPoint="0,0">
+                                        <GradientStop Color="#F6F6F6"
+                                  Offset="0" />
+                                        <GradientStop Color="#959595"
+                                  Offset="0.5" />
+                                        <GradientStop Color="#565656"
+                                  Offset="1" />
+                                    </LinearGradientBrush>
+                                </wpfSpark:ToggleSwitch.ThumbBorderBrush>
+                            </wpfSpark:ToggleSwitch>
+
+
+
+                            <Line Style="{StaticResource LineStyle}"
+                   Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" ></Line>
+
+                            <Button Grid.Column="1" Grid.Row="7" Content="{x:Static fieldresoures:FieldResource.Send}" Style="{StaticResource ButtonStyle}"
+                                Name="BtnSendSetting" Click="BtnSendSetting_Click"></Button>
+                            <Button Grid.Column="0" Grid.Row="7" Content="{x:Static fieldresoures:FieldResource.Close}" Style="{StaticResource ButtonStyle}"
+                                Name="BtnClosrSetting" Click="Close_Click"></Button>
+                            <Line Style="{StaticResource LineStyle}"
+                   Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" ></Line>
+
+
+                        </Grid>
+                    </ScrollViewer>
+                </Border>
+
+            </Expander>
+            <TextBlock Grid.Row="7" Grid.Column="9" Grid.RowSpan="1" Grid.ColumnSpan="3"  Name="TextBlockErrorConnection" Foreground="Red"></TextBlock>
+            <report:ReportControl x:Name="ReportControl1" Grid.Row="0" Grid.Column="0" Grid.RowSpan="12" Grid.ColumnSpan="12" Visibility="Hidden"></report:ReportControl>
+        </Grid>
+
+
+    </Grid>
+
+
+</Window>

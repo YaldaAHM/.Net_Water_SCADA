@@ -1,0 +1,35 @@
+﻿<Window x:Class="ReporterWPF.Login.SplashWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ReporterWPF.Login"
+        xmlns:fieldresoures="clr-namespace:Reporter.Localization.Login;assembly=Reporter.Localization"
+        mc:Ignorable="d" Width="700" Height="500" Language="fa-IR"
+             ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        ShowInTaskbar="False" WindowStyle="None" BorderThickness="1" BorderBrush="{x:Null}" FlowDirection="{DynamicResource FlowDirectionRL}"
+         FontSize="12" Topmost="True" Focusable="False" ContentRendered="WindowContentRendered" AllowsTransparency="True"  >
+
+    <Window.Background>
+        <ImageBrush TileMode="Tile" RenderOptions.BitmapScalingMode="HighQuality" />
+        <!--ImageSource="Icons/Login6..jpg"-->
+    </Window.Background>
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Source="../Image/Pic/spl1.png"></Image>
+        <Label VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="2">
+            <TextBlock><Run Text="{x:Static fieldresoures:FieldResource.SoftWareStation}"/><LineBreak/><Run Text="{x:Static fieldresoures:FieldResource.Version}"/><LineBreak/>
+ </TextBlock>
+        </Label>
+      
+        <Image Grid.Row="0" Grid.Column="2" Grid.RowSpan="1" Grid.ColumnSpan="1" Margin="40" Source="../Image/Pic/wt.png"/>
+    </Grid>
+</Window>
