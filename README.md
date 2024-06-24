@@ -1,6 +1,7 @@
 Water SCADA Desktop Application
 
 A comprehensive SCADA (Supervisory Control and Data Acquisition) system developed using WPF, XAML, and C#. This application is designed to monitor and control various components in water management systems, such as pumps, pumping stations, reservoirs, and more.
+
 Table of Contents
 
     Introduction
